@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   env.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: diomari <diomarti@student.42lisboa.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/17 17:29:06 by diomari           #+#    #+#             */
-/*   Updated: 2023/11/19 21:14:46 by diomari          ###   ########.fr       */
+/*   Created: 2023/11/19 19:54:27 by diomari           #+#    #+#             */
+/*   Updated: 2023/11/19 20:13:36 by diomari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minishell.h"
+#include "../../minishell.h"
 
-struct s_global all;
-
-int main(int ac, char **av, char **env)
+t_env	*env_dup(char **env)
 {
-	(void)ac;
-	(void)av;
-	all.env = env_dup(env);
-	all.status = 0;
-	all.hd = 0;
-	all.vars = i_vars();
-	// rl_catch_signals = 0;
-	sig_def();
-	shell(); //fazer shell
+	int		i = 0;
+	t_env	*res = NULL;
+	
+	while (env[i])
+		e_add_back(&res, e_new(ft_strdup(env[i])));
+	return (res);
 }

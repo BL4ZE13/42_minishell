@@ -1,28 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: diomari <diomarti@student.42lisboa.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/17 17:29:06 by diomari           #+#    #+#             */
-/*   Updated: 2023/11/19 21:14:46 by diomari          ###   ########.fr       */
+/*   Created: 2023/11/19 20:12:36 by diomari           #+#    #+#             */
+/*   Updated: 2023/11/19 20:12:38 by diomari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
-struct s_global all;
-
-int main(int ac, char **av, char **env)
+char	*ft_strdup(const char *src)
 {
-	(void)ac;
-	(void)av;
-	all.env = env_dup(env);
-	all.status = 0;
-	all.hd = 0;
-	all.vars = i_vars();
-	// rl_catch_signals = 0;
-	sig_def();
-	shell(); //fazer shell
+	int		i;
+	char	*dest;
+
+	i = 0;
+	while (src[i])
+		i++;
+	dest = (char *)malloc(sizeof(char) * (i + 1));
+	if (!dest)
+		return (NULL);
+	i = 0;
+	while (src[i])
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	dest[i] = '\0';
+	return (dest);
 }

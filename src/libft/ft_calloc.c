@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: diomari <diomarti@student.42lisboa.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/17 17:29:06 by diomari           #+#    #+#             */
-/*   Updated: 2023/11/19 21:14:46 by diomari          ###   ########.fr       */
+/*   Created: 2023/11/19 20:13:05 by diomari           #+#    #+#             */
+/*   Updated: 2023/11/19 20:13:07 by diomari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minishell.h"
+#include "../../minishell.h"
 
-struct s_global all;
-
-int main(int ac, char **av, char **env)
+void	*ft_calloc(size_t nelem, size_t elsize)
 {
-	(void)ac;
-	(void)av;
-	all.env = env_dup(env);
-	all.status = 0;
-	all.hd = 0;
-	all.vars = i_vars();
-	// rl_catch_signals = 0;
-	sig_def();
-	shell(); //fazer shell
+	char	*arr;
+	size_t	i;
+
+	i = -1;
+	arr = malloc(elsize * nelem);
+	if (!arr)
+		return (NULL);
+	if (nelem != 0)
+	{
+		while (++i < (elsize * nelem))
+			arr[i] = 0;
+		return ((void *)arr);
+	}
+	return ((void *)arr);
 }

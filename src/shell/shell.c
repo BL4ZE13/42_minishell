@@ -1,28 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   shell.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: diomari <diomarti@student.42lisboa.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/17 17:29:06 by diomari           #+#    #+#             */
-/*   Updated: 2023/11/19 21:14:46 by diomari          ###   ########.fr       */
+/*   Created: 2023/11/19 21:15:27 by diomari           #+#    #+#             */
+/*   Updated: 2023/11/19 21:16:07 by diomari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minishell.h"
+#include "../../minishell.h"
 
-struct s_global all;
-
-int main(int ac, char **av, char **env)
+void	shell(void)
 {
-	(void)ac;
-	(void)av;
-	all.env = env_dup(env);
-	all.status = 0;
-	all.hd = 0;
-	all.vars = i_vars();
-	// rl_catch_signals = 0;
-	sig_def();
-	shell(); //fazer shell
+	
 }

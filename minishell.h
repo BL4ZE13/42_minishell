@@ -6,7 +6,7 @@
 /*   By: diomari <diomarti@student.42lisboa.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 17:29:09 by diomari           #+#    #+#             */
-/*   Updated: 2023/11/18 18:31:42 by diomari          ###   ########.fr       */
+/*   Updated: 2023/11/19 21:42:49 by diomari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,63 @@
 #include <termios.h>
 #include "./src/gnl/get_next_line.h"
 
+//STRUCTS
+typedef struct s_env
+{
+	char			*ct;
+	struct s_env	*next;
+	struct s_env	*prev;
+}	t_env;
+
+typedef struct s_list
+{
+	char			**ct;
+	char			*path;
+	int				fd_m[2];
+	int				fd[2];
+	int				error[2];
+	struct s_list	*next;
+	struct s_list	*prev;
+	//void			(*ft_exec)(struct s_list **lst);
+}	t_list;
+
+typedef struct s_vars
+{
+	t_list			*head;
+	char			*str;
+	char			**env;
+	char			**div;
+}	t_vars;
+
+struct s_global
+{
+	t_vars			*vars;
+	int				status;
+	t_env			*env;
+	int				hd;
+	int				stop;
+	struct termios	termios_save;
+};
+
+extern struct s_global all;
+
 //MAIN
 
-//UTILS
+//ENV
+t_env	*e_last(t_env *lst);
+void	e_add_back(t_env **lst, t_env *new);
+t_env	*e_new(char *str);
+t_env	*env_dup(char **env);
+
+//LIBFT
+void	*ft_calloc(size_t nelem, size_t elsize);
+char	*ft_strdup(const char *src);
+void	ft_free_matrix(char ***m);
+void	ft_free_list(t_list **lst);
+void	print_list(t_list *list);
+
+//SHELL
+void	shell(void);
 
 //BUILTINS
 
@@ -45,6 +99,14 @@
 
 //PARSER
 
+//UTILS
+void	top_lst(t_list	**lst);
+int		free_vars(void);
+t_vars	*i_vars(void);
+
 //SIG&ERRORS
+void	sig_def(void);
+void	sigint_handle(int sigint);
+void	sigquit_handle(int sigquit);
 
 #endif
