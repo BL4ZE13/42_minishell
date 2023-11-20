@@ -3,20 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dsa-mora <dsa-mora@student.42.fr>          +#+  +:+       +#+        */
+/*   By: diomari <diomarti@student.42lisboa.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/25 18:01:12 by dsa-mora          #+#    #+#             */
-/*   Updated: 2022/11/19 16:45:59 by dsa-mora         ###   ########.fr       */
+/*   Created: 2023/11/20 17:22:21 by diomari           #+#    #+#             */
+/*   Updated: 2023/11/20 17:22:23 by diomari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-//Se o buffer tiver vazio le, caso contrario usa o que tem
-//A flag serve para saber quando acabar a limpeza do buffer, 
-//isto e, quando o buffer chegar ao \n
-//Esta funcao le uma linha de um ficheiro e caso seja chamada 
-//novamente, le a linha a seguir da que ja leu.
 char	*get_next_line(int fd)
 {
 	static char	buffer[BUFFER_SIZE + 1];

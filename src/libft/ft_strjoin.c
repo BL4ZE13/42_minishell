@@ -1,35 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   shell.c                                            :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: diomari <diomarti@student.42lisboa.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/19 21:15:27 by diomari           #+#    #+#             */
-/*   Updated: 2023/11/20 17:48:29 by diomari          ###   ########.fr       */
+/*   Created: 2023/11/20 18:41:44 by diomari           #+#    #+#             */
+/*   Updated: 2023/11/20 18:41:45 by diomari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../minishell.h"
+#include "../minishell.h"
 
-void	shell(void)
+char	*ft_strjoin(char *s1, char const *s2)
 {
-	char	*input;
-	t_list	*lst;
-	
-	while (1)
-	{
-		all.stop = 0;
-		input = readline("minishell> ");
-		if (!input)
-		{
-			if (input)
-				free(input);
-			free_env(&all.env);
-			free_vars();
-			exit(0);
-		}
-		add_history(input);
-		syntax(input);
-	}
+	int		size_concat;
+	char	*concat;
+	int		i;
+	int		j;
+
+	i = -1;
+	j = -1;
+	size_concat = ft_strlen(s1) + ft_strlen(s2);
+	concat = (char *)ft_calloc((size_concat + 1), sizeof(char));
+	while (s1[++i])
+		concat[i] = s1[i];
+	while (s2[++j])
+		concat[i + j] = s2[j];
+	return (concat);
 }

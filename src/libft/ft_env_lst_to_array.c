@@ -1,35 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   shell.c                                            :+:      :+:    :+:   */
+/*   ft_env_lst_to_arr.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: diomari <diomarti@student.42lisboa.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/19 21:15:27 by diomari           #+#    #+#             */
-/*   Updated: 2023/11/20 17:48:29 by diomari          ###   ########.fr       */
+/*   Created: 2023/11/20 18:10:55 by diomari           #+#    #+#             */
+/*   Updated: 2023/11/20 18:12:06 by diomari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../minishell.h"
+#include "../minishell.h"
 
-void	shell(void)
+char	**ft_env_lst_to_array(t_env *lst_env)
 {
-	char	*input;
-	t_list	*lst;
-	
-	while (1)
+	int		size;
+	char	**arr;
+	int		i;
+
+	size = ft_env_lstsize(lst_env);
+	arr = (char **)malloc((size + 1) * sizeof(char *));
+	if (!arr)
+		return (NULL);
+	i = 0;
+	env_go_head(&lst_env);
+	while (lst_env)
 	{
-		all.stop = 0;
-		input = readline("minishell> ");
-		if (!input)
-		{
-			if (input)
-				free(input);
-			free_env(&all.env);
-			free_vars();
-			exit(0);
-		}
-		add_history(input);
-		syntax(input);
+		arr[i] = ft_strdup(lst_env->ct);
+		lst_env = lst_env->next;
+		i++;
 	}
+	arr[size] = NULL;
+	return (arr);
 }

@@ -1,35 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   shell.c                                            :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: diomari <diomarti@student.42lisboa.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/19 21:15:27 by diomari           #+#    #+#             */
-/*   Updated: 2023/11/20 17:48:29 by diomari          ###   ########.fr       */
+/*   Created: 2023/11/20 17:14:54 by diomari           #+#    #+#             */
+/*   Updated: 2023/11/20 17:14:56 by diomari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../minishell.h"
+#include "../minishell.h"
 
-void	shell(void)
+char	*ft_strchr(const char *s, int c)
 {
-	char	*input;
-	t_list	*lst;
-	
-	while (1)
+	while (*s != '\0')
 	{
-		all.stop = 0;
-		input = readline("minishell> ");
-		if (!input)
-		{
-			if (input)
-				free(input);
-			free_env(&all.env);
-			free_vars();
-			exit(0);
-		}
-		add_history(input);
-		syntax(input);
+		if (*s == (char)c)
+			return ((char *)s);
+		s++;
 	}
+	if (*s == (char)c)
+		return ((char *)s);
+	return (0);
 }

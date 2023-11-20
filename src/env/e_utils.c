@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   e_utils.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diomarti <diomarti@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: diomari <diomarti@student.42lisboa.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 19:54:52 by diomari           #+#    #+#             */
-/*   Updated: 2023/11/20 10:21:28 by diomarti         ###   ########.fr       */
+/*   Updated: 2023/11/20 18:21:58 by diomari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,21 @@ void	free_env(t_env **lst)
 		*lst = cur;
 	}
 	return (1);
+}
+
+char *e_search(char **env, char *str)
+{
+	int i = 0;
+	char *tmp;
+
+	while (env && env[i] && ft_strncmp(env[i], str, nb_search(env[i], str)))
+		i++;
+	if (*str == '?')
+		return (ft_itoa(all.status));
+	if (!env[i] || !str || !*str)
+		return ("");
+	tmp = (env[i] + ft_strlen(str));
+	if (*tmp == '=')
+		tmp++;
+	return (tmp);
 }

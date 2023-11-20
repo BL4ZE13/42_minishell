@@ -1,35 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   shell.c                                            :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: diomari <diomarti@student.42lisboa.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/19 21:15:27 by diomari           #+#    #+#             */
-/*   Updated: 2023/11/20 17:48:29 by diomari          ###   ########.fr       */
+/*   Created: 2023/11/20 18:14:27 by diomari           #+#    #+#             */
+/*   Updated: 2023/11/20 18:14:30 by diomari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../minishell.h"
+#include "../minishell.h"
 
-void	shell(void)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	char	*input;
-	t_list	*lst;
-	
-	while (1)
-	{
-		all.stop = 0;
-		input = readline("minishell> ");
-		if (!input)
-		{
-			if (input)
-				free(input);
-			free_env(&all.env);
-			free_vars();
-			exit(0);
-		}
-		add_history(input);
-		syntax(input);
-	}
+	size_t	i;
+
+	i = 0;
+	while ((s1[i] == s2[i] && s1[i] != '\0' && s2[i] != '\0') && i < n - 1)
+		i++;
+	if (n == 0)
+		return (0);
+	else
+		return ((unsigned char) s1[i] - (unsigned char) s2[i]);
 }
