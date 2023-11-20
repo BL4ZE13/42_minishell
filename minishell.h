@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diomari <diomarti@student.42lisboa.com>    +#+  +:+       +#+        */
+/*   By: diomarti <diomarti@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 17:29:09 by diomari           #+#    #+#             */
-/*   Updated: 2023/11/19 21:42:49 by diomari          ###   ########.fr       */
+/*   Updated: 2023/11/20 10:21:40 by diomarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ t_env	*e_last(t_env *lst);
 void	e_add_back(t_env **lst, t_env *new);
 t_env	*e_new(char *str);
 t_env	*env_dup(char **env);
+void	free_env(t_env **lst);
 
 //LIBFT
 void	*ft_calloc(size_t nelem, size_t elsize);

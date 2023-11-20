@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   shell.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diomari <diomarti@student.42lisboa.com>    +#+  +:+       +#+        */
+/*   By: diomarti <diomarti@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 21:15:27 by diomari           #+#    #+#             */
-/*   Updated: 2023/11/19 21:16:07 by diomari          ###   ########.fr       */
+/*   Updated: 2023/11/20 10:31:56 by diomarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,21 @@
 
 void	shell(void)
 {
+	char	*input;
+	t_list	*lst;
 	
+	while (1)
+	{
+		all.stop = 0;
+		input = readline("minishell> ");
+		if (!input)
+		{
+			if (input)
+				free(input);
+			free_env(&all.env);
+			free_vars();
+			exit(0);
+		}
+		add_history(input);
+	}
 }

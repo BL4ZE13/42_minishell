@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   e_utils.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diomari <diomarti@student.42lisboa.com>    +#+  +:+       +#+        */
+/*   By: diomarti <diomarti@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 19:54:52 by diomari           #+#    #+#             */
-/*   Updated: 2023/11/19 20:10:32 by diomari          ###   ########.fr       */
+/*   Updated: 2023/11/20 10:21:28 by diomarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,18 @@ t_env	*e_new(char *str)
 		return (NULL);
 	new->ct = str;
 	return (new);
+}
+
+void	free_env(t_env **lst)
+{
+	t_env *cur;
+
+	while (*lst)
+	{
+		cur = (*lst)->next;
+		free((*lst)->ct);
+		free(*lst);
+		*lst = cur;
+	}
+	return (1);
 }
