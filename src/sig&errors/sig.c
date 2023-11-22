@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sig.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diomari <diomarti@student.42lisboa.com>    +#+  +:+       +#+        */
+/*   By: diomarti <diomarti@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 20:53:28 by diomari           #+#    #+#             */
-/*   Updated: 2023/11/19 21:12:24 by diomari          ###   ########.fr       */
+/*   Updated: 2023/11/22 10:30:53 by diomarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ void	sig_def(void)
 	signal(SIGQUIT, sigquit_handle);
 }
 
+//se n der com o all.status:
+	//int status e substituir
 void	sigint_handle(int sigint)
 {
-	//se n der com o all.status:
-	//int status e substituir
-	(void)sigint;
 	pid_t	pid;
-	
+
+	(void)sigint;
 	pid = waitpid(-1, &all.status, 0);
 	all.status = 130;
 	write(2, "^C", 2);
@@ -34,7 +34,7 @@ void	sigint_handle(int sigint)
 		all.stop = 1;
 		return ;
 	}
-	if (pid = -1)
+	if (pid == -1)
 	{
 		rl_replace_line("", 0);
 		rl_on_new_line();
@@ -42,12 +42,12 @@ void	sigint_handle(int sigint)
 	}
 }
 
+//mesma coisa da func anterior;
 void	sigquit_handle(int sigquit)
 {
-	//mesma coisa da func anterior;
-	(void)sigquit;
 	pid_t	pid;
-	
+
+	(void)sigquit;
 	pid = waitpid(-1, &all.status, 0);
 	if (pid == -1)
 		SIG_IGN ;

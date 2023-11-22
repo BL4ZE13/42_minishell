@@ -3,22 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   cd.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diomari <diomarti@student.42lisboa.com>    +#+  +:+       +#+        */
+/*   By: diomarti <diomarti@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 17:56:41 by diomari           #+#    #+#             */
-/*   Updated: 2023/11/20 18:55:17 by diomari          ###   ########.fr       */
+/*   Updated: 2023/11/22 10:32:46 by diomarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-int update_pwd(char *str)
+//mudar para PATH_MAX
+int	update_pwd(char *str)
 {
-	char	buff[PATH_MAX];
+	char	buff[_PC_PATH_MAX];
 	t_env	*env_cur;
 	char	*c_cur;
 	char	*c_cur2;
-	
+
 	if (getcwd(buff, sizeof(buff)) != NULL)
 	{
 		env_cur = e_search_lst(str);
@@ -35,7 +36,7 @@ int update_pwd(char *str)
 	return (1);
 }
 
-int change_dir(char *path)
+int	change_dir(char *path)
 {
 	update_pwd("OLDPWD");
 	if (!chdir(path) && update_pwd("PWD"))
@@ -50,7 +51,7 @@ int change_dir(char *path)
 			write(2, "minishell: cd: not a directory\n", 32);
 		write(2, path, ft_strlen(path));
 		write(2, "\n", 1);
-		all.status = 1;		
+		all.status = 1;
 	}
 	return (1);
 }
@@ -64,8 +65,8 @@ void	finish_cd(char **env)
 
 void	cd_exec(t_list **lst)
 {
-	char *home_p;
-	char **env;
+	char	*home_p;
+	char	**env;
 
 	top_lst(lst);
 	if (ft_matrixlen((*lst)->ct) > 2)

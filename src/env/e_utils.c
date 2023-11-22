@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   e_utils.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diomari <diomarti@student.42lisboa.com>    +#+  +:+       +#+        */
+/*   By: diomarti <diomarti@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 19:54:52 by diomari           #+#    #+#             */
-/*   Updated: 2023/11/20 18:21:58 by diomari          ###   ########.fr       */
+/*   Updated: 2023/11/22 10:45:52 by diomarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,9 @@ void	e_add_back(t_env **lst, t_env *new)
 
 t_env	*e_new(char *str)
 {
-	t_env	*new = (t_env *)ft_calloc(sizeof(t_env), 1);
-	
+	t_env	*new;
+
+	new = (t_env *)ft_calloc(sizeof(t_env), 1);
 	if (!new)
 		return (NULL);
 	new->ct = str;
@@ -49,7 +50,7 @@ t_env	*e_new(char *str)
 
 void	free_env(t_env **lst)
 {
-	t_env *cur;
+	t_env	*cur;
 
 	while (*lst)
 	{
@@ -61,11 +62,12 @@ void	free_env(t_env **lst)
 	return (1);
 }
 
-char *e_search(char **env, char *str)
+char	*e_search(char **env, char *str)
 {
-	int i = 0;
-	char *tmp;
+	int		i;
+	char	*tmp;
 
+	i = 0;
 	while (env && env[i] && ft_strncmp(env[i], str, nb_search(env[i], str)))
 		i++;
 	if (*str == '?')

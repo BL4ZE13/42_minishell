@@ -3,31 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diomari <diomarti@student.42lisboa.com>    +#+  +:+       +#+        */
+/*   By: diomarti <diomarti@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 17:29:09 by diomari           #+#    #+#             */
-/*   Updated: 2023/11/20 18:56:21 by diomari          ###   ########.fr       */
+/*   Updated: 2023/11/22 10:59:53 by diomarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINISHELL_H
 # define MINISHELL_H
 
-#include <unistd.h>
-#include <string.h>
-#include <stdlib.h>
-#include <limits.h>
-#include <fcntl.h>
-#include <stdio.h>
-#include <sys/wait.h>
-#include <sys/time.h>
-#include <readline/readline.h>
-#include <readline/history.h>
-#include <errno.h>
-#include <signal.h>
-#include <term.h>
-#include <termios.h>
-#include "./src/gnl/get_next_line.h"
+# include <unistd.h>
+# include <string.h>
+# include <stdlib.h>
+# include <limits.h>
+# include <fcntl.h>
+# include <stdio.h>
+# include <sys/wait.h>
+# include <sys/time.h>
+# include <readline/readline.h>
+# include <readline/history.h>
+# include <errno.h>
+# include <signal.h>
+# include <term.h>
+# include <termios.h>
+# include "./src/gnl/get_next_line.h"
 
 //STRUCTS
 typedef struct s_env
@@ -46,7 +46,6 @@ typedef struct s_list
 	int				error[2];
 	struct s_list	*next;
 	struct s_list	*prev;
-	//void			(*ft_exec)(struct s_list **lst);
 }	t_list;
 
 typedef struct s_vars
@@ -67,7 +66,7 @@ struct s_global
 	struct termios	termios_save;
 };
 
-extern struct s_global all;
+extern struct s_global	all;
 
 //MAIN
 
@@ -82,7 +81,8 @@ char	*e_search(char **env, char *str);
 size_t	var_size(char *str);
 void	e_top(t_env **env);
 t_env	*e_search_lst(char *input);
-
+void	bpn(t_env **lst);
+void	e_del(t_env **lst);
 
 //LIBFT
 void	*ft_calloc(size_t nelem, size_t elsize);
@@ -109,7 +109,10 @@ int		update_pwd(char *str);
 int		change_dir(char *path);
 void	finish_cd(char **env);
 void	cd_exec(t_list **lst);
-
+	//echo
+void	echo_exec(t_list **lst);
+void	echo_op(t_list **lst, int *flag);
+void	print_mt(char **str, size_t i);
 
 //}
 
@@ -119,7 +122,6 @@ void	cd_exec(t_list **lst);
 char	*get_next_line(int fd);
 size_t	ft_strlen(const char *str);
 char	*ft_strjoin_gnl(char *s1, char *s2);
-
 
 //EXECUTER
 
@@ -143,6 +145,8 @@ int		syn_sep(char *str, int *array);
 void	tr_quote(char *input, int i, int *flag);
 void	quote_del(char **input);
 void	str_q_del(char **input, char c);
+	//utils
+void	close_fd(t_list **lst, int flag);
 
 //}
 

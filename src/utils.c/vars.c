@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   vars.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diomari <diomarti@student.42lisboa.com>    +#+  +:+       +#+        */
+/*   By: diomarti <diomarti@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 21:23:34 by diomari           #+#    #+#             */
-/*   Updated: 2023/11/19 21:42:56 by diomari          ###   ########.fr       */
+/*   Updated: 2023/11/22 10:40:28 by diomarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	free_vars(void)
 t_vars	*i_vars(void)
 {
 	t_vars	*vars;
-	
+
 	vars = ft_calloc(1, sizeof(t_vars));
 	vars->head = NULL;
 	vars->str = NULL;

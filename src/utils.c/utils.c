@@ -1,30 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: diomarti <diomarti@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/17 17:29:06 by diomari           #+#    #+#             */
-/*   Updated: 2023/11/22 10:26:43 by diomarti         ###   ########.fr       */
+/*   Created: 2023/11/22 09:41:57 by diomarti          #+#    #+#             */
+/*   Updated: 2023/11/22 10:42:57 by diomarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minishell.h"
+#include "../../minishell.h"
 
-struct s_global	all;
-
-int	main(int ac, char **av, char **env)
+void	close_fd(t_list **lst, int flag)
 {
-	(void)ac;
-	(void)av;
-	all.env = env_dup(env);
-	all.status = 0;
-	all.hd = 0;
-	all.vars = i_vars();
-	sig_def();
-	shell();
-}
+	t_list	*tmp;
 
-//rl_catch_signals = 0; (so funciona no linux) 
-//meter por baixp do vars
+	tmp = (*lst);
+	if (flag)
+		top_lst(lst);
+	while ((*lst))
+	{
+		close((*lst)->fd[0]);
+		close((*lst)->fd[1]);
+		if ((*lst)->fd_m[1] > 2)
+			close((*lst)->fd_m[1]);
+		if ((*lst)->fd_m[0] > 2)
+			close((*lst)->fd_m[0]);
+		if (!flag)
+			break ;
+		(*lst) = (*lst)->next;
+	}
+	(*lst) = tmp;
+}

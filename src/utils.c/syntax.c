@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   syntax.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diomari <diomarti@student.42lisboa.com>    +#+  +:+       +#+        */
+/*   By: diomarti <diomarti@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 10:22:56 by diomarti          #+#    #+#             */
-/*   Updated: 2023/11/20 17:33:05 by diomari          ###   ########.fr       */
+/*   Updated: 2023/11/22 10:42:40 by diomarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-int syn_sep(char *str, int *array)
+int	syn_sep(char *str, int *array)
 {
 	array[0] = 0;
 	if ((str[0] == '<' && str[1] == '<') || (str[0] == '>' && str[1] == '>'))
@@ -29,10 +29,12 @@ int syn_sep(char *str, int *array)
 		return (array[0]);
 }
 
+//se n der mudar para -1 e ++i
 void	syn_error(char *str, char *input, int size)
 {
-	int i = 0; //se n der mudar para -1 e ++i
+	int	i;
 
+	i = 0;
 	write(2, "minishell: syntax error near unexpected token `", 47);
 	while (size != 0 && str[i])
 	{
@@ -48,10 +50,13 @@ void	syn_error(char *str, char *input, int size)
 
 void	tr_sep(char *input, int i, int size, int *wd)
 {
-	int tmp = 0;
-	int n = 0;
-	int sep = 0;
+	int	tmp;
+	int	n;
+	int	sep;
 
+	tmp = 0;
+	n = 0;
+	sep = 0;
 	if (input[i] == '|')
 		sep = input[i];
 	if (input[i] == '|' && input[i + 1] == '|')
@@ -61,7 +66,8 @@ void	tr_sep(char *input, int i, int size, int *wd)
 	i += size;
 	while (input[i])
 	{
-		if (((!sep && syn_sep(&input[i], &tmp)) || (sep && syn_sep(&input[i], &tmp) == 4)) && !n)
+		if (((!sep && syn_sep(&input[i], &tmp)) \
+			|| (sep && syn_sep(&input[i], &tmp) == 4)) && !n)
 			syn_error(&input[i], input, tmp);
 		else if (input[i] != 32)
 			n++;
@@ -74,19 +80,22 @@ void	tr_sep(char *input, int i, int size, int *wd)
 void	syntax(char *input)
 {
 	int	array[5];
-	int i = 0;
+	int	i;
 
+	i = 0;
 	while (i <= 4)
 		array[i++] = 0;
 	if (!input)
 		return ;
 	while (input[array[0]])
 	{
-		if ((input[array[0]] == '\'' || input[array[0]] == '\"') && (!array[4] || array[4] == input[array[0]]))
+		if ((input[array[0]] == '\'' || input[array[0]] == '\"') \
+			&& (!array[4] || array[4] == input[array[0]]))
 			array[4] = (input[array[0]]) * (array[4] != input[array[0]]);
 		if (!array[4] && syn_sep(&input[array[0]], &(array[1])))
 			tr_sep(input, array[0], array[1], &(array[2]));
-		else if ((input[array[0]] == '\"' && !array[3]) || (input[array[0]] == '\'' && !array[3]))
+		else if ((input[array[0]] == '\"' && !array[3]) \
+			|| (input[array[0]] == '\'' && !array[3]))
 			tr_quote(input, array[0], &array[3]);
 		else if (input[array[0]] == array[3])
 			array[3] = 0;
