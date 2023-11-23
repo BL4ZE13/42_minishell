@@ -6,11 +6,11 @@
 /*   By: diomari <diomarti@student.42lisboa.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 21:35:32 by diomari           #+#    #+#             */
-/*   Updated: 2023/11/19 21:35:38 by diomari          ###   ########.fr       */
+/*   Updated: 2023/11/23 19:05:49 by diomari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minishell.h"
+#include "../../minishell.h"
 
 void	ft_free_list(t_list **lst)
 {

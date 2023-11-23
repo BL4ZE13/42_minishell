@@ -6,11 +6,11 @@
 /*   By: diomari <diomarti@student.42lisboa.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 20:12:36 by diomari           #+#    #+#             */
-/*   Updated: 2023/11/19 20:12:38 by diomari          ###   ########.fr       */
+/*   Updated: 2023/11/23 19:06:12 by diomari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minishell.h"
+#include "../../minishell.h"
 
 char	*ft_strdup(const char *src)
 {

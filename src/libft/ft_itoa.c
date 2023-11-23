@@ -6,11 +6,11 @@
 /*   By: diomari <diomarti@student.42lisboa.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 18:19:29 by diomari           #+#    #+#             */
-/*   Updated: 2023/11/20 18:19:40 by diomari          ###   ########.fr       */
+/*   Updated: 2023/11/23 19:05:57 by diomari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minishell.h"
+#include "../../minishell.h"
 
 int	ft_size(int nb)
 {

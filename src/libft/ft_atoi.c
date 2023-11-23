@@ -1,27 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: diomari <diomarti@student.42lisboa.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/20 18:52:20 by diomari           #+#    #+#             */
-/*   Updated: 2023/11/23 19:06:08 by diomari          ###   ########.fr       */
+/*   Created: 2023/11/23 18:20:09 by diomari           #+#    #+#             */
+/*   Updated: 2023/11/23 19:05:37 by diomari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-int	ft_strcmp(char *s1, char *s2)
+const char	*ft_white_spaces(const char *nptr)
 {
-	unsigned int	i;
+	while (*nptr == 32 || (*nptr >= 9 && *nptr <= 13))
+		nptr++;
+	return (nptr);
+}
 
-	if (s1 && s2)
+int	ft_atoi(const char *nptr)
+{
+	int	signal;
+	int	nb;
+
+	signal = 1;
+	nb = 0;
+	nptr = ft_white_spaces(nptr);
+	if (*nptr == '-')
 	{
-		i = 0;
-		while (s1[i] == s2[i] && (s1[i] != '\0' && s2[i] != '\0'))
-			i++;
-		return (s1[i] - s2[i]);
+		signal *= -1;
+		nptr++;
 	}
-	return (1);
+	else if (*nptr == '+')
+		nptr++;
+	while (*nptr >= '0' && *nptr <= '9')
+	{
+		nb = nb * 10 + *nptr - '0';
+		nptr++;
+	}
+	return (nb * signal);
 }

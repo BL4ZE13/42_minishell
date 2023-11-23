@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diomarti <diomarti@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: diomari <diomarti@student.42lisboa.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 09:41:57 by diomarti          #+#    #+#             */
-/*   Updated: 2023/11/22 10:42:57 by diomarti         ###   ########.fr       */
+/*   Updated: 2023/11/23 19:12:00 by diomari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,32 @@ void	close_fd(t_list **lst, int flag)
 		(*lst) = (*lst)->next;
 	}
 	(*lst) = tmp;
+}
+
+void	mod_matrix(char **array)
+{
+	int	i;
+	int	j;
+	int	flag;
+
+	i = -1;
+	if (!array)
+		return ;
+	while (array[++i])
+	{
+		printf("declare -x ");
+		j = 0;
+		flag = 0;
+		while (array[i][j])
+		{
+			printf("%c", array[i][j]);
+			if (array[i][j] == '=' && !flag)
+			{
+				printf("\"");
+				flag = 1;
+			}
+			j++;
+		}
+		printf("\"\n");
+	}
 }

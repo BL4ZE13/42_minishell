@@ -6,11 +6,11 @@
 /*   By: diomari <diomarti@student.42lisboa.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 18:14:27 by diomari           #+#    #+#             */
-/*   Updated: 2023/11/20 18:14:30 by diomari          ###   ########.fr       */
+/*   Updated: 2023/11/23 19:06:19 by diomari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minishell.h"
+#include "../../minishell.h"
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {

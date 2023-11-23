@@ -6,11 +6,11 @@
 /*   By: diomari <diomarti@student.42lisboa.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 17:14:54 by diomari           #+#    #+#             */
-/*   Updated: 2023/11/20 17:14:56 by diomari          ###   ########.fr       */
+/*   Updated: 2023/11/23 19:06:05 by diomari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minishell.h"
+#include "../../minishell.h"
 
 char	*ft_strchr(const char *s, int c)
 {

@@ -1,27 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_bubble_sort.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: diomari <diomarti@student.42lisboa.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/20 18:52:20 by diomari           #+#    #+#             */
-/*   Updated: 2023/11/23 19:06:08 by diomari          ###   ########.fr       */
+/*   Created: 2023/11/23 19:05:15 by diomari           #+#    #+#             */
+/*   Updated: 2023/11/23 19:05:41 by diomari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-int	ft_strcmp(char *s1, char *s2)
+void	ft_bubble_sort(char **arr, int size)
 {
-	unsigned int	i;
+	int		i;
+	int		swapped;
+	char	*temp;
 
-	if (s1 && s2)
+	swapped = 1;
+	while (swapped)
 	{
+		swapped = 0;
 		i = 0;
-		while (s1[i] == s2[i] && (s1[i] != '\0' && s2[i] != '\0'))
-			i++;
-		return (s1[i] - s2[i]);
+		while (i < size - 1)
+		{
+			if (ft_strcmp(arr[i], arr[i + 1]) > 0)
+			{
+				temp = arr[i];
+				arr[i] = arr[i + 1];
+				arr[i + 1] = temp;
+				swapped = 1;
+			}
+		i++;
+		}
+		size--;
 	}
-	return (1);
 }

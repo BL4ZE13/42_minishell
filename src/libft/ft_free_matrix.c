@@ -6,11 +6,11 @@
 /*   By: diomari <diomarti@student.42lisboa.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 21:37:33 by diomari           #+#    #+#             */
-/*   Updated: 2023/11/19 21:37:38 by diomari          ###   ########.fr       */
+/*   Updated: 2023/11/23 19:05:54 by diomari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minishell.h"
+#include "../../minishell.h"
 
 void	ft_free_matrix(char ***m)
 {
