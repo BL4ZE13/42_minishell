@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: diomari <diomarti@student.42lisboa.com>    +#+  +:+       +#+         #
+#    By: diomarti <diomarti@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/17 17:29:03 by diomari           #+#    #+#              #
-#    Updated: 2023/11/23 19:18:56 by diomari          ###   ########.fr        #
+#    Updated: 2023/11/24 11:18:16 by diomarti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,6 +46,7 @@ SOURCES =	src/main.c \
 			src/libft/ft_atoi.c \
 			src/libft/ft_bubble_sort.c \
 			src/libft/ft_isalnum.c \
+			src/parser/parser.c \
 			src/shell/shell.c \
 			src/sig&errors/sig.c \
 			src/utils/list_utils.c \

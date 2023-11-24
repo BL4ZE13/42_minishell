@@ -3,23 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   export.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diomari <diomarti@student.42lisboa.com>    +#+  +:+       +#+        */
+/*   By: diomarti <diomarti@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 17:58:42 by diomari           #+#    #+#             */
-/*   Updated: 2023/11/23 19:30:56 by diomari          ###   ########.fr       */
+/*   Updated: 2023/11/24 11:47:51 by diomarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-void	exp_core(t_list **lst, char **str, int i)
+void	expo_core(t_list **lst, char **str, int i)
 {
 	t_env	*cur;
 
 	cur = NULL;
 	if (!str || !str[0])
 	{
-		exp_error(lst, str, i);
+		expo_error(lst, str, i);
 		return ;
 	}
 	cur = e_search_lst(str[0]);
@@ -37,7 +37,7 @@ void	exp_core(t_list **lst, char **str, int i)
 	ft_free_matrix(&str);
 }
 
-void	exp_error(t_list **lst, char **str, int i)
+void	expo_error(t_list **lst, char **str, int i)
 {
 	write(2, "minishell: export: \'", 21);
 	write(2, ((*lst)->ct[i]), ft_strlen((*lst)->ct[i]));
@@ -46,10 +46,10 @@ void	exp_error(t_list **lst, char **str, int i)
 	all.status = 1;
 }
 
-void	exp_only(void)
+void	expo_only(void)
 {
-	char **env;
-	
+	char	**env;
+
 	env = ft_env_lst_to_array(all.env);
 	ft_bubble_sort(env, ft_matrixlen(env));
 	mod_matrix(env);
@@ -61,18 +61,18 @@ void	export_exec(t_list **lst)
 {
 	char	**str;
 	int		i;
-	
+
 	i = 1;
 	if (!(*lst)->ct[1])
-		exp_only();
+		expo_only();
 	while ((*lst)->ct[1])
 	{
 		str = ft_split((*lst)->ct[1], '=');
 		if ((*lst)->ct[i][0] == '=' || (str && !ft_isalnum(str[0])) \
 			|| ft_isdigit((*lst)->ct[i][0]))
-			exp_error(lst, str, i);
+			expo_error(lst, str, i);
 		else
-			exp_core(lst, str, i);
+			expo_core(lst, str, i);
 		i++;
 	}
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diomari <diomarti@student.42lisboa.com>    +#+  +:+       +#+        */
+/*   By: diomarti <diomarti@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 17:29:09 by diomari           #+#    #+#             */
-/*   Updated: 2023/11/23 19:35:51 by diomari          ###   ########.fr       */
+/*   Updated: 2023/11/24 11:47:28 by diomarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,6 @@ struct s_global
 
 extern struct s_global	all;
 
-//MAIN
-
 //ENV
 t_env		*e_last(t_env *lst);
 void		e_add_back(t_env **lst, t_env *new);
@@ -128,11 +126,10 @@ void		exit_exec(t_list **lst);
 	//pwd
 void		pwd_exec(t_list **lst);
 	//export
-void		exp_core(t_list **lst, char **str, int i);
-void		exp_error(t_list **lst, char **str, int i);
-void		exp_only(void);
+void		expo_core(t_list **lst, char **str, int i);
+void		expo_error(t_list **lst, char **str, int i);
+void		expo_only(void);
 void		export_exec(t_list **lst);
-
 
 //}
 
@@ -143,16 +140,17 @@ char		*get_next_line(int fd);
 size_t		ft_strlen(const char *str);
 char		*ft_strjoin_gnl(char *s1, char *s2);
 
-//EXECUTER
-
 //HEREDOC
 
 //PARSER
+int			check_sep(char *str, int *array);
+void		parser(char *res, char *str, char sep, int *array);
 
 //UTILS
 //{
 	//list_utils
 void		top_lst(t_list	**lst);
+t_list	*gen_lst(char *input);
 	//vars
 int			free_vars(void);
 t_vars		*i_vars(void);

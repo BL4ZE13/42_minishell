@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bubble_sort.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diomari <diomarti@student.42lisboa.com>    +#+  +:+       +#+        */
+/*   By: diomarti <diomarti@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 19:05:15 by diomari           #+#    #+#             */
-/*   Updated: 2023/11/23 19:05:41 by diomari          ###   ########.fr       */
+/*   Updated: 2023/11/24 10:37:42 by diomarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	ft_bubble_sort(char **arr, int size)
 				arr[i + 1] = temp;
 				swapped = 1;
 			}
-		i++;
+			i++;
 		}
 		size--;
 	}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exit.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diomari <diomarti@student.42lisboa.com>    +#+  +:+       +#+        */
+/*   By: diomarti <diomarti@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 17:57:08 by diomari           #+#    #+#             */
-/*   Updated: 2023/11/23 18:23:40 by diomari          ###   ########.fr       */
+/*   Updated: 2023/11/24 10:36:36 by diomarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_isnum(const char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (str == NULL)
@@ -32,7 +32,7 @@ int	ft_isnum(const char *str)
 
 int	exit_ov(t_list **lst)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if ((*lst)->ct[1] && (*lst)->ct[1][0])
@@ -53,7 +53,7 @@ int	exit_ov(t_list **lst)
 
 void	exit_exec(t_list **lst)
 {
-	int n;
+	int	n;
 
 	if (exit_ov(lst))
 		all.status = 2;

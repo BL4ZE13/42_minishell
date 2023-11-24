@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pwd.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diomari <diomarti@student.42lisboa.com>    +#+  +:+       +#+        */
+/*   By: diomarti <diomarti@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 17:58:54 by diomari           #+#    #+#             */
-/*   Updated: 2023/11/23 18:59:01 by diomari          ###   ########.fr       */
+/*   Updated: 2023/11/24 10:35:36 by diomarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	pwd_exec(t_list **lst)
 {
 	char	cwd[_PC_PATH_MAX];
-	
+
 	(void)lst;
 	close_fd(lst, 1);
 	if ((*lst)->ct[1] && (*lst)->ct[1][0] == '-')
