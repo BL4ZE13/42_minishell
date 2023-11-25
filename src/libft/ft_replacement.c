@@ -1,40 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   shell.c                                            :+:      :+:    :+:   */
+/*   ft_replacement.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: diomari <diomarti@student.42lisboa.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/19 21:15:27 by diomari           #+#    #+#             */
-/*   Updated: 2023/11/25 19:42:51 by diomari          ###   ########.fr       */
+/*   Created: 2023/11/25 18:22:18 by diomari           #+#    #+#             */
+/*   Updated: 2023/11/25 18:22:43 by diomari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-void	shell(void)
+char	*ft_replacement(char *str, char *s1, char *s2)
 {
-	char	*input;
-	t_list	*lst;
+	char	*res;
+	int		i;
+	int		j;
+	int		k;
 
-	while (1)
+	if (!str)
+		return (NULL);
+	res = ft_calloc(ft_strlen(str) + ft_strlen(s2) + 1, 1);
+	i = 0;
+	j = 0;
+	k = -1;
+	while (str[++k])
 	{
-		all.stop = 0;
-		input = readline("minishell> ");
-		if (!input)
+		if (!ft_strncmp(s1, &str[k], ft_strlen(s1)) && !j)
 		{
-			if (input)
-				free(input);
-			free_env(&all.env);
-			free_vars();
-			exit(0);
+			while (s2[j])
+				res[i++] = s2[j++];
+			j++;
+			k += ft_strlen(s1) - 1;
 		}
-		add_history(input);
-		syntax(input);
-		lst = gen_lst(input);
-		if (!input[0] || !lst->ct[0] || !lst->ct[0][0])
-			all.status = 0;
-		if (lst->ct[0] && !all.stop)
-			
+		else
+			res[i++] = str[k];
 	}
+	return (res);
 }

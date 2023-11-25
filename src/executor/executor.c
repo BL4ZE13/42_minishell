@@ -1,40 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   shell.c                                            :+:      :+:    :+:   */
+/*   executor.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: diomari <diomarti@student.42lisboa.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/19 21:15:27 by diomari           #+#    #+#             */
-/*   Updated: 2023/11/25 19:42:51 by diomari          ###   ########.fr       */
+/*   Created: 2023/11/25 19:43:40 by diomari           #+#    #+#             */
+/*   Updated: 2023/11/25 19:53:56 by diomari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-void	shell(void)
+void	exe_core(t_list *lst)
 {
-	char	*input;
-	t_list	*lst;
+	char **env;
 
-	while (1)
+	while (lst)
 	{
-		all.stop = 0;
-		input = readline("minishell> ");
-		if (!input)
+		if (lst->ct[0] && !lst->error[0] && !lst->error[1])
 		{
-			if (input)
-				free(input);
-			free_env(&all.env);
-			free_vars();
-			exit(0);
-		}
-		add_history(input);
-		syntax(input);
-		lst = gen_lst(input);
-		if (!input[0] || !lst->ct[0] || !lst->ct[0][0])
-			all.status = 0;
-		if (lst->ct[0] && !all.stop)
+			env = ft_env_lst_to_array(all.env);
+			lst->path = cmd_path(env, lst->ct);
+			ft_free_matrix(&env);
 			
+		}
 	}
+}
+
+void	executor(t_list *lst)
+{
+	int		status;
+	pid_t	i;
+	
+	
 }

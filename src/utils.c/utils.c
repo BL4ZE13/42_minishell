@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diomarti <diomarti@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: diomari <diomarti@student.42lisboa.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 09:41:57 by diomarti          #+#    #+#             */
-/*   Updated: 2023/11/24 10:37:21 by diomarti         ###   ########.fr       */
+/*   Updated: 2023/11/25 19:52:59 by diomari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,4 +60,32 @@ void	mod_matrix(char **array)
 		}
 		printf("\"\n");
 	}
+}
+
+char	*cmd_path(char **env, char **cmd)
+{
+	char	**matrix;
+	char	*tmp;
+	char	*res;
+	int		i;
+
+	i = 0;
+	if (access(cmd[0], X_OK) == 0)
+		return (ft_strdup(cmd[0]));
+	matrix = ft_split(e_search(env, "PATH"), ':');
+	res = ft_strjoin("/", cmd[0]);
+	while (matrix[i])
+	{
+		tmp = ft_strjoin(matrix[i], res);
+		if (access(tmp, X_OK) == 0)
+		{
+			free(res);
+			res = tmp;
+			break ;
+		}
+		free(tmp);
+		i++;
+	}
+	ft_free_matrix(&matrix);
+	return (res);	
 }

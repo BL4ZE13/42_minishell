@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   expander_utils.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diomarti <diomarti@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: diomari <diomarti@student.42lisboa.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 11:45:40 by diomarti          #+#    #+#             */
-/*   Updated: 2023/11/24 12:12:06 by diomarti         ###   ########.fr       */
+/*   Updated: 2023/11/25 18:27:08 by diomari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,4 +56,16 @@ char	*chg_dollar(char *input, char **env)
 	j = 0;
 	buff = ft_calloc(1024, 1);
 	chg_dollar_loop(&input, &buff, &i, &j);
+	if (!j)
+	{
+		free(buff);
+		return (input);
+	}
+	tmp = e_search(env, buff + 1);
+	str = ft_replacement(input, buff, tmp);
+	if (*(buff + 1) == '?')
+		free(tmp);
+	free(input);
+	free(buff);
+	return (chg_dollar(str, env));
 }

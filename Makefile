@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: diomarti <diomarti@student.42lisboa.com    +#+  +:+       +#+         #
+#    By: diomari <diomarti@student.42lisboa.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/17 17:29:03 by diomari           #+#    #+#              #
-#    Updated: 2023/11/24 11:18:16 by diomarti         ###   ########.fr        #
+#    Updated: 2023/11/25 19:43:32 by diomari          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,6 +32,7 @@ SOURCES =	src/main.c \
 			src/env/e_utils.c \
 			src/env/e_utils2.c \
 			src/env/env.c \
+			src/executor/executor.c \
 			src/libft/ft_calloc.c \
 			src/libft/ft_strdup.c \
 			src/libft/ft_free_list.c \
@@ -46,7 +47,9 @@ SOURCES =	src/main.c \
 			src/libft/ft_atoi.c \
 			src/libft/ft_bubble_sort.c \
 			src/libft/ft_isalnum.c \
+			src/libft/ft_replacement.c \
 			src/parser/parser.c \
+			src/redirections/redirections.c \
 			src/shell/shell.c \
 			src/sig&errors/sig.c \
 			src/utils/list_utils.c \

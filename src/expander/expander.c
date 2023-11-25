@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   expander.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diomarti <diomarti@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: diomari <diomarti@student.42lisboa.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 11:39:06 by diomarti          #+#    #+#             */
-/*   Updated: 2023/11/24 12:04:51 by diomarti         ###   ########.fr       */
+/*   Updated: 2023/11/25 18:38:13 by diomari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,10 +68,16 @@ void	exp_loop(char ***div, char **env, int *i, int *j)
 	while (tmp[++k])
 	{
 		if (*tmp[k] != '\'')
-			tmp[k];
+			tmp[k] = chg_dollar(tmp[k], env);
 	}
-
-
+	k = -1;
+	while (tmp[++k])
+	{
+		str = div[0][i[0] - j[0]];
+		div[0][i[0] - j[0]] = ft_strjoin(str, tmp[k]);
+		free(str);
+	}
+	ft_free_matrix(&tmp);
 }
 
 void	exp_util(char ***div, char **env, int *i, int *j)
@@ -81,8 +87,11 @@ void	exp_util(char ***div, char **env, int *i, int *j)
 		if (ft_strchr(div[0][i[0]], '\'') || \
 			ft_strchr(div[0][i[0]], '\"'))
 			exp_loop(div, env, i, j);
+		else
+			div[0][i[0] - j[0]] = chg_dollar(div, env);
+		if (!div[0][i[0] - j[0]][0])
+			free(div[0][i[0] - j[0]++]);
 	}
-
 }
 
 char	**expander(char **div, char **env)
@@ -92,5 +101,9 @@ char	**expander(char **div, char **env)
 
 	i = -1;
 	j = 0;
-	
+	exp_util(&div, env, &i, &j);
+	while (j)
+		!(div[--i] = NULL) && j--;
+	ft_free_matrix(&env);
+	return (div);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diomarti <diomarti@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: diomari <diomarti@student.42lisboa.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 17:29:09 by diomari           #+#    #+#             */
-/*   Updated: 2023/11/24 11:47:28 by diomarti         ###   ########.fr       */
+/*   Updated: 2023/11/25 19:53:16 by diomari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,7 @@ char		**ft_split(const char *str, char c);
 int			ft_isdigit(int i);
 int			ft_isalnum(int i);
 int			ft_str_islanum(char *str);
+char		*ft_replacement(char *str, char *s1, char *s2);
 
 //SHELL
 void		shell(void);
@@ -133,7 +134,21 @@ void		export_exec(t_list **lst);
 
 //}
 
-//EXPANDER
+//REDIRECTIONS
+void	redirection(t_list *lst, char **div);
+void token_red(char **div, int *i, t_list *lst);
+void	inv_fd(t_list *lst);
+int	token_check(char *str);
+
+//EXPANDER&UTILS
+char		**expander(char **div, char **env);
+void		exp_util(char ***div, char **env, int *i, int *j);
+void		exp_loop(char ***div, char **env, int *i, int *j);
+char		**exp_prep(char *str);
+char		*str_prep(char *str, int i, int len);
+char		*chg_dollar(char *input, char **env);
+void		chg_dollar_loop(char **input, char **buff, int *i, int *j);
+int			is_alphnum(char c);
 
 //GNL
 char		*get_next_line(int fd);
@@ -150,7 +165,10 @@ void		parser(char *res, char *str, char sep, int *array);
 //{
 	//list_utils
 void		top_lst(t_list	**lst);
-t_list	*gen_lst(char *input);
+t_list		*ft_lstnew(int i);
+t_list		*ft_lstlast(t_list *lst);
+void		ft_lstadd_back(t_list **lst, t_list *new);
+t_list		*gen_lst(char *input);
 	//vars
 int			free_vars(void);
 t_vars		*i_vars(void);
@@ -166,6 +184,7 @@ void		str_q_del(char **input, char c);
 	//utils
 void		close_fd(t_list **lst, int flag);
 void		mod_matrix(char **array);
+char		*cmd_path(char **env, char **cmd);
 
 //}
 
