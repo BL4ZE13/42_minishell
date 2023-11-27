@@ -6,7 +6,7 @@
 /*   By: diomari <diomarti@student.42lisboa.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 17:29:09 by diomari           #+#    #+#             */
-/*   Updated: 2023/11/25 19:53:16 by diomari          ###   ########.fr       */
+/*   Updated: 2023/11/27 10:27:39 by diomari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ typedef struct s_list
 	int				error[2];
 	struct s_list	*next;
 	struct s_list	*prev;
+	void			(*ft_exec)(struct s_list **list)
 }	t_list;
 
 typedef struct s_vars
@@ -69,18 +70,34 @@ struct s_global
 extern struct s_global	all;
 
 //ENV
+	//env
+void		e_exec(t_list **lst);
+void		bpn(t_env **lst);
+t_env		*env_dup(char **env);
+	//e_utils
 t_env		*e_last(t_env *lst);
 void		e_add_back(t_env **lst, t_env *new);
 t_env		*e_new(char *str);
-t_env		*env_dup(char **env);
-void		free_env(t_env **lst);
-int			nb_search(char *s1, char *s2);
+int			free_env(t_env **lst);
 char		*e_search(char **env, char *str);
+	//e_utils2
+int			nb_search(char *s1, char *s2);
 size_t		var_size(char *str);
 void		e_top(t_env **env);
 t_env		*e_search_lst(char *input);
-void		bpn(t_env **lst);
 void		e_del(t_env **lst);
+
+
+//EXECUTOR
+	//executor
+void		executor(t_list *lst);
+void		exe_core(t_list *lst);
+void		exec_cmd(t_list *lst);
+void		exec_op(t_list *lst);
+	//executor_utils
+void		def_exec(t_list **lst);
+int			is_builtin(t_list *lst);
+int			fd_check(t_list *lst);
 
 //LIBFT
 void		*ft_calloc(size_t nelem, size_t elsize);
@@ -110,7 +127,6 @@ char		*ft_replacement(char *str, char *s1, char *s2);
 void		shell(void);
 
 //BUILTINS
-//{
 	//cd
 int			update_pwd(char *str);
 int			change_dir(char *path);
@@ -131,14 +147,14 @@ void		expo_core(t_list **lst, char **str, int i);
 void		expo_error(t_list **lst, char **str, int i);
 void		expo_only(void);
 void		export_exec(t_list **lst);
-
-//}
+	//unset
+void		unset_exec(t_list **lst);
 
 //REDIRECTIONS
-void	redirection(t_list *lst, char **div);
-void token_red(char **div, int *i, t_list *lst);
-void	inv_fd(t_list *lst);
-int	token_check(char *str);
+void		redirection(t_list *lst, char **div);
+void		token_red(char **div, int *i, t_list *lst);
+void		inv_fd(t_list *lst);
+int			token_check(char *str);
 
 //EXPANDER&UTILS
 char		**expander(char **div, char **env);
@@ -162,13 +178,14 @@ int			check_sep(char *str, int *array);
 void		parser(char *res, char *str, char sep, int *array);
 
 //UTILS
-//{
 	//list_utils
 void		top_lst(t_list	**lst);
 t_list		*ft_lstnew(int i);
 t_list		*ft_lstlast(t_list *lst);
 void		ft_lstadd_back(t_list **lst, t_list *new);
 t_list		*gen_lst(char *input);
+	//list_utils2
+int			ft_lstsize(t_list *lst);
 	//vars
 int			free_vars(void);
 t_vars		*i_vars(void);
@@ -186,11 +203,14 @@ void		close_fd(t_list **lst, int flag);
 void		mod_matrix(char **array);
 char		*cmd_path(char **env, char **cmd);
 
-//}
-
 //SIG&ERRORS
+	//sig
 void		sig_def(void);
 void		sigint_handle(int sigint);
 void		sigquit_handle(int sigquit);
+	//errors
+void		error_handle(char *cmd);
+void		is_dir(char *cmd);
+void		cmd_nf(char *cmd);
 
 #endif

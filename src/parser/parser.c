@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diomarti <diomarti@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: diomari <diomarti@student.42lisboa.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 10:45:02 by diomarti          #+#    #+#             */
-/*   Updated: 2023/11/24 11:06:42 by diomarti         ###   ########.fr       */
+/*   Updated: 2023/11/27 10:35:06 by diomari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,5 @@ void	parser(char *res, char *str, char sep, int *array)
 		else if ((*str == 2 && array[1]) || \
 			((*str != 2 || *str++ != 2) && ++array[1]))
 			len = !(!!(*res++ = *str++));
-
 	}
 }

@@ -1,42 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   shell.c                                            :+:      :+:    :+:   */
+/*   list_utils2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: diomari <diomarti@student.42lisboa.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/19 21:15:27 by diomari           #+#    #+#             */
-/*   Updated: 2023/11/27 10:32:08 by diomari          ###   ########.fr       */
+/*   Created: 2023/11/27 10:03:17 by diomari           #+#    #+#             */
+/*   Updated: 2023/11/27 10:03:31 by diomari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-void	shell(void)
+int	ft_lstsize(t_list *lst)
 {
-	char	*input;
-	t_list	*lst;
+	size_t	i;
 
-	while (1)
+	i = 0;
+	go_head(&lst);
+	while (lst)
 	{
-		all.stop = 0;
-		input = readline("minishell> ");
-		if (!input)
-		{
-			if (input)
-				free(input);
-			free_env(&all.env);
-			free_vars();
-			exit(0);
-		}
-		add_history(input);
-		syntax(input);
-		lst = gen_lst(input);
-		if (!input[0] || !lst->ct[0] || !lst->ct[0][0])
-			all.status = 0;
-		if (lst->ct[0] && !all.stop)
-			executor(lst);
-		ft_free_list(&lst);
-		free(input);
+		lst = lst->next;
+		i++;
 	}
+	return (i);
 }

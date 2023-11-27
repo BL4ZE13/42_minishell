@@ -6,7 +6,7 @@
 #    By: diomari <diomarti@student.42lisboa.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/17 17:29:03 by diomari           #+#    #+#              #
-#    Updated: 2023/11/25 19:43:32 by diomari          ###   ########.fr        #
+#    Updated: 2023/11/27 10:05:00 by diomari          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,7 @@ SOURCES =	src/main.c \
 			src/env/e_utils2.c \
 			src/env/env.c \
 			src/executor/executor.c \
+			src/executor/executor_utils.c \
 			src/libft/ft_calloc.c \
 			src/libft/ft_strdup.c \
 			src/libft/ft_free_list.c \
@@ -52,9 +53,12 @@ SOURCES =	src/main.c \
 			src/redirections/redirections.c \
 			src/shell/shell.c \
 			src/sig&errors/sig.c \
+			src/sig&errors/errors.c \
 			src/utils/list_utils.c \
+			src/utils.c/list_utils2.c \
 			src/utils/vars.c \
 			src/utils/syntax.c \
+			src/utils.c/utils.c \
 			src/utils/quotes_utils.c \
 			
 		
