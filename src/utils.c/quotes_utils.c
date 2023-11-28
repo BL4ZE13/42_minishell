@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   quotes_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diomarti <diomarti@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: diomari <diomarti@student.42lisboa.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 17:03:27 by diomari           #+#    #+#             */
-/*   Updated: 2023/11/22 10:39:56 by diomarti         ###   ########.fr       */
+/*   Updated: 2023/11/27 19:24:00 by diomari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,11 +61,10 @@ void	tr_quote(char *input, int i, int *flag)
 
 	c = input[i];
 	*flag = c;
-	while (input[i])
+	while (input[++i])
 	{
 		if (c == input[i])
 			return ;
-		i++;
 	}
 	syn_error(&c, input, 1);
 }

@@ -6,7 +6,7 @@
 /*   By: diomari <diomarti@student.42lisboa.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 11:39:06 by diomarti          #+#    #+#             */
-/*   Updated: 2023/11/25 18:38:13 by diomari          ###   ########.fr       */
+/*   Updated: 2023/11/27 19:33:18 by diomari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ void	exp_util(char ***div, char **env, int *i, int *j)
 			ft_strchr(div[0][i[0]], '\"'))
 			exp_loop(div, env, i, j);
 		else
-			div[0][i[0] - j[0]] = chg_dollar(div, env);
+			div[0][i[0] - j[0]] = chg_dollar(div[0][i[0]], env);
 		if (!div[0][i[0] - j[0]][0])
 			free(div[0][i[0] - j[0]++]);
 	}

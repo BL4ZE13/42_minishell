@@ -6,7 +6,7 @@
 /*   By: diomari <diomarti@student.42lisboa.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 19:10:28 by diomari           #+#    #+#             */
-/*   Updated: 2023/11/25 19:31:14 by diomari          ###   ########.fr       */
+/*   Updated: 2023/11/27 19:02:09 by diomari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void token_red(char **div, int *i, t_list *lst)
 			lst->fd_m[1] = open(div[++(*i)], \
 			O_WRONLY | O_APPEND | O_CREAT, 0644);
 		else if (op == 1)
-			lst->fd_m[0] = ft_here_doc(div[++(*i)]);
+			lst->fd_m[0] = ft_heredoc(div[++(*i)]);
 		else if (op == 3)
 			lst->fd_m[0] = open(div[++(*i)], O_RDONLY, 0644);
 		else if (op == 4)

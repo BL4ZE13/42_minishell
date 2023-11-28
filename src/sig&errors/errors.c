@@ -6,7 +6,7 @@
 /*   By: diomari <diomarti@student.42lisboa.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 09:43:44 by diomari           #+#    #+#             */
-/*   Updated: 2023/11/27 09:53:11 by diomari          ###   ########.fr       */
+/*   Updated: 2023/11/27 18:43:16 by diomari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,4 +53,13 @@ void	error_handle(char *cmd)
 		perror("");
 		all.status = errno;
 	}	
+}
+
+int	hd_error(char *str)
+{
+	write(2, "warning: here-document at line 1 \
+	delimited by end-of-file (wanted `", 67);
+	write(2, str, ft_strlen(str));
+	write(2, "')\n", 3);
+	return (1);
 }
