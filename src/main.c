@@ -6,7 +6,7 @@
 /*   By: diomarti <diomarti@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 17:29:06 by diomari           #+#    #+#             */
-/*   Updated: 2023/11/29 09:39:29 by diomarti         ###   ########.fr       */
+/*   Updated: 2023/11/29 10:17:04 by diomarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,7 @@ int	main(int ac, char **av, char **env)
 	g_all.status = 0;
 	g_all.hd = 0;
 	g_all.vars = i_vars();
+	rl_catch_signals = 0;
 	sig_def();
 	shell();
 }
-
-//rl_catch_signals = 0; (so funciona no linux) 
-//meter por baixp do vars

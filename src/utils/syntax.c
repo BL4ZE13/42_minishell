@@ -6,7 +6,7 @@
 /*   By: diomarti <diomarti@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 10:22:56 by diomarti          #+#    #+#             */
-/*   Updated: 2023/11/29 09:46:10 by diomarti         ###   ########.fr       */
+/*   Updated: 2023/11/29 10:17:53 by diomarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,13 @@ int	syn_sep(char *str, int *array)
 		return (array[0]);
 }
 
-//se n der mudar para -1 e ++i
 void	syn_error(char *str, char *input, int size)
 {
 	int	i;
 
-	i = 0;
+	i = -1;
 	write(2, "minishell: syntax error near unexpected token `", 47);
-	while (size != 0 && str[i])
+	while (size != 0 && str[++i])
 	{
 		write(2, &str[i++], 1);
 		size--;

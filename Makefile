@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: diomari <diomarti@student.42lisboa.com>    +#+  +:+       +#+         #
+#    By: diomarti <diomarti@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/17 17:29:03 by diomari           #+#    #+#              #
-#    Updated: 2023/11/29 10:15:17 by diomari          ###   ########.fr        #
+#    Updated: 2023/11/29 10:19:16 by diomarti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,10 +59,10 @@ SOURCES =	src/main.c \
 				src/sig_errors/sig.c \
 				src/sig_errors/errors.c \
 				src/utils/list_utils.c \
-				src/utils.c/list_utils2.c \
+				src/utils/list_utils2.c \
 				src/utils/vars.c \
 				src/utils/syntax.c \
-				src/utils.c/utils.c \
+				src/utils/utils.c \
 				src/utils/quotes_utils.c
 			
 

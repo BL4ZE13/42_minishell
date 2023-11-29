@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   quotes_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diomari <diomarti@student.42lisboa.com>    +#+  +:+       +#+        */
+/*   By: diomarti <diomarti@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 17:03:27 by diomari           #+#    #+#             */
-/*   Updated: 2023/11/27 19:24:00 by diomari          ###   ########.fr       */
+/*   Updated: 2023/11/29 10:17:37 by diomarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,17 +41,15 @@ void	str_q_del(char **input, char c)
 	*input = tmp;
 }
 
-//se n der mudar para -1 e ++i
 void	quote_del(char **input)
 {
 	int	i; 
 
-	i = 0;
-	while (input[i])
+	i = -1;
+	while (input[++i])
 	{
 		if (ft_strchr(input[i], '\'') || ft_strchr(input[i], '\"'))
 			str_q_del(&input[i], 0);
-		i++;
 	}
 }
 
