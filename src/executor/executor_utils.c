@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   executor_utils.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diomari <diomarti@student.42lisboa.com>    +#+  +:+       +#+        */
+/*   By: diomarti <diomarti@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 09:59:05 by diomari           #+#    #+#             */
-/*   Updated: 2023/11/27 10:20:14 by diomari          ###   ########.fr       */
+/*   Updated: 2023/11/29 09:43:11 by diomarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	def_exec(t_list **lst)
 {
-	char **env;
-	
-	env = ft_env_lst_to_array(all.env);
+	char	**env;
+
+	env = ft_env_lst_to_array(g_all.env);
 	close_fd(lst, 1);
 	if (execve((*lst)->path, (*lst)->ct, env) == -1)
 		error_handle((*lst)->ct[0]);
@@ -24,9 +24,9 @@ void	def_exec(t_list **lst)
 	close(1);
 	top_lst(lst);
 	ft_free_matrix(&env);
-	free_env(&all.env);
+	free_env(&g_all.env);
 	free_vars();
-	exit(all.status);
+	exit(g_all.status);
 }
 
 int	is_builtin(t_list *lst)
@@ -45,7 +45,7 @@ int	is_builtin(t_list *lst)
 int	fd_check(t_list *lst)
 {
 	int	res;
-	
+
 	res = 0;
 	while (lst)
 	{

@@ -6,7 +6,7 @@
 /*   By: diomarti <diomarti@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 17:58:42 by diomari           #+#    #+#             */
-/*   Updated: 2023/11/24 11:47:51 by diomarti         ###   ########.fr       */
+/*   Updated: 2023/11/29 09:42:19 by diomarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	expo_core(t_list **lst, char **str, int i)
 	}
 	cur = e_search_lst(str[0]);
 	if (!cur)
-		e_add_back(&(all.env), e_new(ft_strdup((*lst)->ct[i])));
+		e_add_back(&(g_all.env), e_new(ft_strdup((*lst)->ct[i])));
 	if (cur)
 	{
 		if (str[1])
@@ -33,7 +33,7 @@ void	expo_core(t_list **lst, char **str, int i)
 			cur->ct = ft_strdup((*lst)->ct[i]);
 		}
 	}
-	all.status = 0;
+	g_all.status = 0;
 	ft_free_matrix(&str);
 }
 
@@ -43,14 +43,14 @@ void	expo_error(t_list **lst, char **str, int i)
 	write(2, ((*lst)->ct[i]), ft_strlen((*lst)->ct[i]));
 	write(2, "\' not a valid identifier\n", 26);
 	ft_free_matrix(&str);
-	all.status = 1;
+	g_all.status = 1;
 }
 
 void	expo_only(void)
 {
 	char	**env;
 
-	env = ft_env_lst_to_array(all.env);
+	env = ft_env_lst_to_array(g_all.env);
 	ft_bubble_sort(env, ft_matrixlen(env));
 	mod_matrix(env);
 	ft_free_matrix(&env);

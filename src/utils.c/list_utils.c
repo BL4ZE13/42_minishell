@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   list_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diomari <diomarti@student.42lisboa.com>    +#+  +:+       +#+        */
+/*   By: diomarti <diomarti@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 21:28:06 by diomari           #+#    #+#             */
-/*   Updated: 2023/11/25 19:37:40 by diomari          ###   ########.fr       */
+/*   Updated: 2023/11/29 09:39:51 by diomarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,14 +72,14 @@ t_list	*gen_lst(char *input)
 	array[0] = 0;
 	array[1] = 0;
 	parser(split, input, 0, array);
-	all.vars->div = ft_split(split, 2);
+	g_all.vars->div = ft_split(split, 2);
 	free(split);
-	all.vars->div = expander(all.vars->div, \
-	ft_env_lst_to_array(all.env));
+	g_all.vars->div = expander(g_all.vars->div, \
+	ft_env_lst_to_array(g_all.env));
 	lst = NULL;
-	lst = ft_lstnew(ft_matrixlen(all.vars->div));
-	all.vars->head = lst;
-	redirection(lst, all.vars->div);
-	ft_free_matrix(&all.vars->div);
+	lst = ft_lstnew(ft_matrixlen(g_all.vars->div));
+	g_all.vars->head = lst;
+	redirection(lst, g_all.vars->div);
+	ft_free_matrix(&g_all.vars->div);
 	return (lst);
 }

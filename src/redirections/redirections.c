@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   redirections.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diomari <diomarti@student.42lisboa.com>    +#+  +:+       +#+        */
+/*   By: diomarti <diomarti@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 19:10:28 by diomari           #+#    #+#             */
-/*   Updated: 2023/11/27 19:02:09 by diomari          ###   ########.fr       */
+/*   Updated: 2023/11/29 09:44:19 by diomarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,21 +30,21 @@ void	inv_fd(t_list *lst)
 	if (lst->fd_m[0] == -1)
 	{
 		perror("");
-		all.status = 1;
+		g_all.status = 1;
 		lst->error[0] = 1;
 	}
 	if (lst->fd_m[1] == -1)
 	{
 		perror("");
-		all.status = 1;
+		g_all.status = 1;
 		lst->error[1] = 1;
 	}
 }
 
-void token_red(char **div, int *i, t_list *lst)
+void	token_red(char **div, int *i, t_list *lst)
 {
-	int op;
-	
+	int	op;
+
 	if ((lst->fd_m[0] != -1 && lst->fd_m[1] != -1) || op == 1)
 	{
 		if (lst->fd_m[0] > 2 && (op == 1 || op == 3))

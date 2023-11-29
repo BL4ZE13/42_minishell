@@ -6,7 +6,7 @@
 /*   By: diomarti <diomarti@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 17:56:54 by diomari           #+#    #+#             */
-/*   Updated: 2023/11/22 10:35:09 by diomarti         ###   ########.fr       */
+/*   Updated: 2023/11/29 09:41:19 by diomarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,5 +62,5 @@ void	echo_exec(t_list **lst)
 	}
 	else if (flag == 2)
 		print_mt((*lst)->ct, 2);
-	all.status = 0;
+	g_all.status = 0;
 }

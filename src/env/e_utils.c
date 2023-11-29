@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   e_utils.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diomari <diomarti@student.42lisboa.com>    +#+  +:+       +#+        */
+/*   By: diomarti <diomarti@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 19:54:52 by diomari           #+#    #+#             */
-/*   Updated: 2023/11/27 10:09:51 by diomari          ###   ########.fr       */
+/*   Updated: 2023/11/29 09:42:42 by diomarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ char	*e_search(char **env, char *str)
 	while (env && env[i] && ft_strncmp(env[i], str, nb_search(env[i], str)))
 		i++;
 	if (*str == '?')
-		return (ft_itoa(all.status));
+		return (ft_itoa(g_all.status));
 	if (!env[i] || !str || !*str)
 		return ("");
 	tmp = (env[i] + ft_strlen(str));

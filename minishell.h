@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diomari <diomarti@student.42lisboa.com>    +#+  +:+       +#+        */
+/*   By: diomarti <diomarti@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 17:29:09 by diomari           #+#    #+#             */
-/*   Updated: 2023/11/27 18:57:37 by diomari          ###   ########.fr       */
+/*   Updated: 2023/11/29 09:36:17 by diomarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ typedef struct s_list
 	int				error[2];
 	struct s_list	*next;
 	struct s_list	*prev;
-	void			(*ft_exec)(struct s_list **list)
+	void			(*ft_exec)(struct s_list **list);
 }	t_list;
 
 typedef struct s_vars
@@ -67,7 +67,7 @@ struct s_global
 	struct termios	termios_save;
 };
 
-extern struct s_global	all;
+extern struct s_global	g_all;
 
 //BUILTINS
 //cd

@@ -6,7 +6,7 @@
 /*   By: diomarti <diomarti@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 21:23:34 by diomari           #+#    #+#             */
-/*   Updated: 2023/11/22 10:40:28 by diomarti         ###   ########.fr       */
+/*   Updated: 2023/11/29 09:46:20 by diomarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,20 @@
 
 int	free_vars(void)
 {
-	if (all.vars)
+	if (g_all.vars)
 	{
-		if (all.vars->head)
+		if (g_all.vars->head)
 		{
-			top_lst(&all.vars->head);
-			ft_free_list(&all.vars->head);
+			top_lst(&g_all.vars->head);
+			ft_free_list(&g_all.vars->head);
 		}
-		if (all.vars->str)
-			free(all.vars->str);
-		if (all.vars->env)
-			ft_free_matrix(&all.vars->env);
-		if (all.vars->div)
-			ft_free_matrix(&all.vars->div);
-		free(all.vars);
+		if (g_all.vars->str)
+			free(g_all.vars->str);
+		if (g_all.vars->env)
+			ft_free_matrix(&g_all.vars->env);
+		if (g_all.vars->div)
+			ft_free_matrix(&g_all.vars->div);
+		free(g_all.vars);
 	}
 	return (1);
 }

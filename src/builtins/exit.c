@@ -6,7 +6,7 @@
 /*   By: diomarti <diomarti@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 17:57:08 by diomari           #+#    #+#             */
-/*   Updated: 2023/11/24 10:36:36 by diomarti         ###   ########.fr       */
+/*   Updated: 2023/11/29 09:42:07 by diomarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,15 +56,15 @@ void	exit_exec(t_list **lst)
 	int	n;
 
 	if (exit_ov(lst))
-		all.status = 2;
+		g_all.status = 2;
 	else if ((*lst)->ct[1] && (*lst)->ct[2])
 	{
-		all.status = 1;
+		g_all.status = 1;
 		write(2, "minishell: exit: too many arguments\n", 37);
 	}
 	else if ((*lst)->ct[1] && ft_isnum((*lst)->ct[1]) == 0)
 	{
-		all.status = 2;
+		g_all.status = 2;
 		write(2, "minishell: exit: ", 17);
 		write(2, (*lst)->ct[1], ft_strlen((*lst)->ct[1]));
 		write(2, ": numeric argument required\n", 29);
@@ -74,6 +74,6 @@ void	exit_exec(t_list **lst)
 		n = ft_atoi((*lst)->ct[1]);
 		if (n >= 256)
 			n -= 256;
-		all.status = n;
+		g_all.status = n;
 	}
 }

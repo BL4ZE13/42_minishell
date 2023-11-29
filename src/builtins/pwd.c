@@ -6,7 +6,7 @@
 /*   By: diomarti <diomarti@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 17:58:54 by diomari           #+#    #+#             */
-/*   Updated: 2023/11/24 10:35:36 by diomarti         ###   ########.fr       */
+/*   Updated: 2023/11/29 09:42:27 by diomarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,5 @@ void	pwd_exec(t_list **lst)
 		perror("Error getting current directory");
 		return ;
 	}
-	all.status = 0;
+	g_all.status = 0;
 }

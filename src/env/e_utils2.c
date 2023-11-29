@@ -6,7 +6,7 @@
 /*   By: diomarti <diomarti@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 18:16:15 by diomari           #+#    #+#             */
-/*   Updated: 2023/11/22 10:59:25 by diomarti         ###   ########.fr       */
+/*   Updated: 2023/11/29 09:42:51 by diomarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ t_env	*e_search_lst(char *input)
 {
 	t_env	*cur;
 
-	cur = all.env;
+	cur = g_all.env;
 	e_top(&cur);
 	while (cur && cur->ct)
 	{

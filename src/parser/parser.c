@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diomari <diomarti@student.42lisboa.com>    +#+  +:+       +#+        */
+/*   By: diomarti <diomarti@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 10:45:02 by diomarti          #+#    #+#             */
-/*   Updated: 2023/11/27 10:35:06 by diomari          ###   ########.fr       */
+/*   Updated: 2023/11/29 09:29:48 by diomarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-int check_sep(char *str, int *array)
+int	check_sep(char *str, int *array)
 {
 	array[0] = 0;
 	if ((str[0] == '<' && str[1] == '<') || (str[0] == '>' && str[1] == '>'))

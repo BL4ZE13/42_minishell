@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_free_list.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diomari <diomarti@student.42lisboa.com>    +#+  +:+       +#+        */
+/*   By: diomarti <diomarti@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 21:35:32 by diomari           #+#    #+#             */
-/*   Updated: 2023/11/23 19:05:49 by diomari          ###   ########.fr       */
+/*   Updated: 2023/11/29 09:44:11 by diomarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	ft_free_list(t_list **lst)
 		free(*lst);
 		*lst = temp;
 	}
-	all.vars->head = NULL;
+	g_all.vars->head = NULL;
 }
 
 void	print_list(t_list *list)

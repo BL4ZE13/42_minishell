@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   executor.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diomari <diomarti@student.42lisboa.com>    +#+  +:+       +#+        */
+/*   By: diomarti <diomarti@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 19:43:40 by diomari           #+#    #+#             */
-/*   Updated: 2023/11/27 10:20:58 by diomari          ###   ########.fr       */
+/*   Updated: 2023/11/29 09:43:47 by diomarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ void	exec_cmd(t_list *lst)
 	{
 		lst->ft_exec(&lst);
 		if (lst->ct && (!ft_strncmp(lst->ct[0], "exit", 5)) && \
-		free_env(&all.env) && free_vars() && write(2, "exit\n", 5))
-			exit(all.status);
+		free_env(&g_all.env) && free_vars() && write(2, "exit\n", 5))
+			exit(g_all.status);
 		return ;
 	}
 	if (fork() == 0)
@@ -53,23 +53,23 @@ void	exec_cmd(t_list *lst)
 		else if (lst->fd_m[1] > 2)
 			dup2(lst->fd_m[1], 1);
 		lst->ft_exec(&lst);
-		free_env(&all.env);
+		free_env(&g_all.env);
 		free_vars();
 		close(0);
-		exit(all.status);
+		exit(g_all.status);
 	}
 	close_fd(&lst, 0);
 }
 
 void	exe_core(t_list *lst)
 {
-	char **env;
+	char	**env;
 
 	while (lst)
 	{
 		if (lst->ct[0] && !lst->error[0] && !lst->error[1])
 		{
-			env = ft_env_lst_to_array(all.env);
+			env = ft_env_lst_to_array(g_all.env);
 			lst->path = cmd_path(env, lst->ct);
 			ft_free_matrix(&env);
 			exec_op(lst);
@@ -85,7 +85,7 @@ void	executor(t_list *lst)
 {
 	int		status;
 	pid_t	i;
-	
+
 	exe_core(lst);
 	top_lst(&lst);
 	while (lst)
@@ -94,12 +94,12 @@ void	executor(t_list *lst)
 		{
 			i = waitpid(-1, &status, 0);
 			if (i != -1 && WIFEXITED(status))
-				all.status = WEXITSTATUS(status);
+				g_all.status = WEXITSTATUS(status);
 		}
 		if (!lst->next)
 			break ;
 		lst = lst->next;
 	}
 	if (fd_check(lst))
-		all.status = 1;
+		g_all.status = 1;
 }

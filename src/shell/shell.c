@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   shell.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diomari <diomarti@student.42lisboa.com>    +#+  +:+       +#+        */
+/*   By: diomarti <diomarti@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 21:15:27 by diomari           #+#    #+#             */
-/*   Updated: 2023/11/27 10:32:08 by diomari          ###   ########.fr       */
+/*   Updated: 2023/11/29 09:44:38 by diomarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@ void	shell(void)
 
 	while (1)
 	{
-		all.stop = 0;
+		g_all.stop = 0;
 		input = readline("minishell> ");
 		if (!input)
 		{
 			if (input)
 				free(input);
-			free_env(&all.env);
+			free_env(&g_all.env);
 			free_vars();
 			exit(0);
 		}
@@ -33,8 +33,8 @@ void	shell(void)
 		syntax(input);
 		lst = gen_lst(input);
 		if (!input[0] || !lst->ct[0] || !lst->ct[0][0])
-			all.status = 0;
-		if (lst->ct[0] && !all.stop)
+			g_all.status = 0;
+		if (lst->ct[0] && !g_all.stop)
 			executor(lst);
 		ft_free_list(&lst);
 		free(input);

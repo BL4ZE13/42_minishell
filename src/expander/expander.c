@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   expander.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diomari <diomarti@student.42lisboa.com>    +#+  +:+       +#+        */
+/*   By: diomarti <diomarti@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 11:39:06 by diomarti          #+#    #+#             */
-/*   Updated: 2023/11/27 19:33:18 by diomari          ###   ########.fr       */
+/*   Updated: 2023/11/29 09:31:10 by diomarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ char	*str_prep(char *str, int i, int len)
 	return (res);
 }
 
-//se n der com 0 exprimentar com -1 o i
 char	**exp_prep(char *str)
 {
 	int		i;
@@ -34,12 +33,12 @@ char	**exp_prep(char *str)
 	int		sep;
 	char	**matrix;
 
-	i = 0;
+	i = -1;
 	j = 0;
 	len = 0;
 	sep = -1;
 	matrix = ft_calloc(1024, sizeof(char *));
-	while (str[i])
+	while (str[++i])
 	{
 		if ((str[i] == '\'' || str[i] == '\"') && \
 			(!sep || sep == str[i] || sep == -1))
@@ -50,7 +49,6 @@ char	**exp_prep(char *str)
 			matrix[j++] = str_prep(str, i, len);
 			len = 0;
 		}
-		i++;
 	}
 	*str = 0;
 	return (matrix);

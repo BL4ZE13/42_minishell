@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   env.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diomari <diomarti@student.42lisboa.com>    +#+  +:+       +#+        */
+/*   By: diomarti <diomarti@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 19:54:27 by diomari           #+#    #+#             */
-/*   Updated: 2023/11/27 09:37:41 by diomari          ###   ########.fr       */
+/*   Updated: 2023/11/29 09:43:00 by diomarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,17 +39,17 @@ void	e_exec(t_list **lst)
 		write(2, "env: '", 6);
 		write(2, (*lst)->ct[1], ft_strlen((*lst)->ct[1]));
 		write(2, "': No such file or directory\n", 29);
-		all.status = 127;
+		g_all.status = 127;
 		return ;
 	}
-	while (all.env && all.env->ct)
+	while (g_all.env && g_all.env->ct)
 	{
-		if (ft_strchr(all.env->ct, '='))
-			printf("%s\n", all.env->ct);
-		if (!all.env->next)
+		if (ft_strchr(g_all.env->ct, '='))
+			printf("%s\n", g_all.env->ct);
+		if (!g_all.env->next)
 			break ;
-		all.env = all.env->next;
+		g_all.env = g_all.env->next;
 	}
-	e_top(&all.env);
-	all.status = 0;
+	e_top(&g_all.env);
+	g_all.status = 0;
 }

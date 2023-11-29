@@ -6,7 +6,7 @@
 /*   By: diomarti <diomarti@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 17:56:41 by diomari           #+#    #+#             */
-/*   Updated: 2023/11/22 10:32:46 by diomarti         ###   ########.fr       */
+/*   Updated: 2023/11/29 09:41:11 by diomarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	change_dir(char *path)
 {
 	update_pwd("OLDPWD");
 	if (!chdir(path) && update_pwd("PWD"))
-		all.status = 0;
+		g_all.status = 0;
 	else
 	{
 		if (access(path, F_OK) == -1)
@@ -51,7 +51,7 @@ int	change_dir(char *path)
 			write(2, "minishell: cd: not a directory\n", 32);
 		write(2, path, ft_strlen(path));
 		write(2, "\n", 1);
-		all.status = 1;
+		g_all.status = 1;
 	}
 	return (1);
 }
@@ -59,7 +59,7 @@ int	change_dir(char *path)
 void	finish_cd(char **env)
 {
 	ft_free_matrix(&env);
-	all.status = 0;
+	g_all.status = 0;
 	return ;
 }
 
@@ -72,10 +72,10 @@ void	cd_exec(t_list **lst)
 	if (ft_matrixlen((*lst)->ct) > 2)
 	{
 		write(2, "minishell: cd: too many arguments\n", 34);
-		all.status = 1;
+		g_all.status = 1;
 		return ;
 	}
-	env = ft_env_lst_to_array(all.env);
+	env = ft_env_lst_to_array(g_all.env);
 	home_p = e_search(env, "HOME");
 	if (!(*lst)->ct[1] && change_dir(home_p))
 		return (finish_cd(env));

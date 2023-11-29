@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   heredoc.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diomari <diomarti@student.42lisboa.com>    +#+  +:+       +#+        */
+/*   By: diomarti <diomarti@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 18:20:09 by diomari           #+#    #+#             */
-/*   Updated: 2023/11/27 19:55:24 by diomari          ###   ########.fr       */
+/*   Updated: 2023/11/29 09:44:00 by diomarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 void	chg_term(void)
 {
-	int			rc;
+	int				rc;
 	struct termios	new;
-	
-	rc = tcgetattr(0, &all.termios_save);
+
+	rc = tcgetattr(0, &g_all.termios_save);
 	if (rc)
 	{
 		perror("");
 		return ;
 	}
-	new = all.termios_save;
+	new = g_all.termios_save;
 	new.c_lflag &= ~ECHOCTL;
 	rc = tcsetattr(0, 0, &new);
 	if (rc)
@@ -36,22 +36,22 @@ void	chg_term(void)
 void	hd_chid(char *str, int *fd)
 {
 	chg_term();
-	all.vars->env = ft_env_lst_to_array(all.env);
+	g_all.vars->env = ft_env_lst_to_array(g_all.env);
 	while (1)
 	{
 		write(0, ">", 1);
-		all.vars->str = get_next_line(0);
-		all.vars->str = chg_dollar(all.vars->str, all.vars->env);
-		if (!all.vars->str && hd_error(str))
+		g_all.vars->str = get_next_line(0);
+		g_all.vars->str = chg_dollar(g_all.vars->str, g_all.vars->env);
+		if (!g_all.vars->str && hd_error(str))
 			break ;
-		if ((ft_strncmp(all.vars->str, str, ft_strlen(str)) == 0) && \
-			(ft_strlen(all.vars->str) - 1 == ft_strlen(str)))
+		if ((ft_strncmp(g_all.vars->str, str, ft_strlen(str)) == 0) && \
+			(ft_strlen(g_all.vars->str) - 1 == ft_strlen(str)))
 			break ;
-		write(fd[1], all.vars->str, ft_strlen(all.vars->str));
-		free(all.vars->str);
-		all.vars->str = NULL;
+		write(fd[1], g_all.vars->str, ft_strlen(g_all.vars->str));
+		free(g_all.vars->str);
+		g_all.vars->str = NULL;
 	}
-	free_env(&all.env);
+	free_env(&g_all.env);
 	free_vars();
 	close(fd[1]);
 	close(fd[0]);
@@ -61,12 +61,12 @@ void	hd_chid(char *str, int *fd)
 int	ft_heredoc(char *str)
 {
 	int	fd[2];
-	int status;
+	int	status;
 
 	status = 0;
 	signal(SIGQUIT, SIG_IGN);
 	signal(SIGINT, sigs_hd);
-	all.hd = 1;
+	g_all.hd = 1;
 	if (pipe(fd) == -1)
 		perror("");
 	if (fork() == 0)
@@ -74,6 +74,6 @@ int	ft_heredoc(char *str)
 	sig_def();
 	close(fd[1]);
 	waitpid(0, &status, 0);
-	all.hd = 0;
+	g_all.hd = 0;
 	return (fd[0]);
 }

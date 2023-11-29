@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sig.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diomari <diomarti@student.42lisboa.com>    +#+  +:+       +#+        */
+/*   By: diomarti <diomarti@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 20:53:28 by diomari           #+#    #+#             */
-/*   Updated: 2023/11/27 18:43:23 by diomari          ###   ########.fr       */
+/*   Updated: 2023/11/29 09:45:34 by diomarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ void	sig_def(void)
 	signal(SIGQUIT, sigquit_handle);
 }
 
-
 void	sigint_handle(int sigint)
 {
 	pid_t	pid;
@@ -26,12 +25,12 @@ void	sigint_handle(int sigint)
 
 	(void)sigint;
 	pid = waitpid(-1, &status, 0);
-	all.status = 130;
+	g_all.status = 130;
 	write(2, "^C", 2);
 	write(2, "\n", 1);
-	if (all.hd)
+	if (g_all.hd)
 	{
-		all.stop = 1;
+		g_all.stop = 1;
 		return ;
 	}
 	if (pid == -1)
@@ -51,7 +50,7 @@ void	sigquit_handle(int sigquit)
 	pid = waitpid(-1, &status, 0);
 	if (pid == -1)
 		SIG_IGN ;
-	else if (!all.hd)
+	else if (!g_all.hd)
 	{
 		write(1, "Quit (core dumped)\n", 20);
 		return ;
@@ -65,7 +64,7 @@ void	sigs_hd(int sig)
 	else if (sig == SIGINT)
 	{
 		write(2, " ", 1);
-		free_env(&all.env);
+		free_env(&g_all.env);
 		free_vars();
 		exit(1);
 	}

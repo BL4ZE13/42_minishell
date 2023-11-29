@@ -6,7 +6,7 @@
 /*   By: diomarti <diomarti@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 10:22:56 by diomarti          #+#    #+#             */
-/*   Updated: 2023/11/22 10:42:40 by diomarti         ###   ########.fr       */
+/*   Updated: 2023/11/29 09:46:10 by diomarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	syn_error(char *str, char *input, int size)
 	write(2, "\'\n", 2);
 	if (input)
 		free(input);
-	all.status = 2;
+	g_all.status = 2;
 	shell();
 }
 

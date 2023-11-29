@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diomari <diomarti@student.42lisboa.com>    +#+  +:+       +#+        */
+/*   By: diomarti <diomarti@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 09:41:57 by diomarti          #+#    #+#             */
-/*   Updated: 2023/11/27 09:59:36 by diomari          ###   ########.fr       */
+/*   Updated: 2023/11/29 09:33:31 by diomarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,5 +87,5 @@ char	*cmd_path(char **env, char **cmd)
 		i++;
 	}
 	ft_free_matrix(&matrix);
-	return (res);	
+	return (res);
 }
