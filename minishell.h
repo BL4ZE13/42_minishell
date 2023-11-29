@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diomarti <diomarti@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: diomari <diomarti@student.42lisboa.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 17:29:09 by diomari           #+#    #+#             */
-/*   Updated: 2023/11/29 09:36:17 by diomarti         ###   ########.fr       */
+/*   Updated: 2023/11/29 10:09:41 by diomari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -165,6 +165,7 @@ int			ft_isdigit(int i);
 int			ft_isalnum(int i);
 int			ft_str_islanum(char *str);
 char		*ft_replacement(char *str, char *s1, char *s2);
+int			e_lstsize(t_env *lst);
 
 //PARSER
 int			check_sep(char *str, int *array);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   export.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diomarti <diomarti@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: diomari <diomarti@student.42lisboa.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 17:58:42 by diomari           #+#    #+#             */
-/*   Updated: 2023/11/29 09:42:19 by diomarti         ###   ########.fr       */
+/*   Updated: 2023/11/29 10:07:25 by diomari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void	export_exec(t_list **lst)
 	while ((*lst)->ct[1])
 	{
 		str = ft_split((*lst)->ct[1], '=');
-		if ((*lst)->ct[i][0] == '=' || (str && !ft_isalnum(str[0])) \
+		if ((*lst)->ct[i][0] == '=' || (str && !ft_str_islanum(str[0])) \
 			|| ft_isdigit((*lst)->ct[i][0]))
 			expo_error(lst, str, i);
 		else

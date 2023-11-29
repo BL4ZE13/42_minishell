@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   redirections.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diomarti <diomarti@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: diomari <diomarti@student.42lisboa.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 19:10:28 by diomari           #+#    #+#             */
-/*   Updated: 2023/11/29 09:44:19 by diomarti         ###   ########.fr       */
+/*   Updated: 2023/11/29 10:12:38 by diomari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ void	token_red(char **div, int *i, t_list *lst)
 {
 	int	op;
 
+	op = token_check(div[*i]);
 	if ((lst->fd_m[0] != -1 && lst->fd_m[1] != -1) || op == 1)
 	{
 		if (lst->fd_m[0] > 2 && (op == 1 || op == 3))
