@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   quotes_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diomarti <diomarti@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: diomari <diomarti@student.42lisboa.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 17:03:27 by diomari           #+#    #+#             */
-/*   Updated: 2023/11/29 10:17:37 by diomarti         ###   ########.fr       */
+/*   Updated: 2023/12/02 19:15:59 by diomari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	str_q_del(char **input, char c)
 	int		flag;
 
 	tmp = ft_calloc(ft_strlen(*input) + 1, 1);
-	i = 1;
+	i = -1;
 	j = 0;
 	flag = 0;
 	if (!tmp)

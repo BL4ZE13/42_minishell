@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   expander.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diomarti <diomarti@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: diomari <diomarti@student.42lisboa.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 11:39:06 by diomarti          #+#    #+#             */
-/*   Updated: 2023/11/29 09:31:10 by diomarti         ###   ########.fr       */
+/*   Updated: 2023/11/30 17:44:47 by diomari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ void	exp_util(char ***div, char **env, int *i, int *j)
 	while (div[0][++i[0]])
 	{
 		if (ft_strchr(div[0][i[0]], '\'') || \
-			ft_strchr(div[0][i[0]], '\"'))
+		ft_strchr(div[0][i[0]], '\"'))
 			exp_loop(div, env, i, j);
 		else
 			div[0][i[0] - j[0]] = chg_dollar(div[0][i[0]], env);

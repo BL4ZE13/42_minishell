@@ -6,7 +6,7 @@
 /*   By: diomari <diomarti@student.42lisboa.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 17:29:09 by diomari           #+#    #+#             */
-/*   Updated: 2023/11/29 10:09:41 by diomari          ###   ########.fr       */
+/*   Updated: 2023/11/30 17:18:54 by diomari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -180,7 +180,7 @@ int			token_check(char *str);
 //SHELL
 void		shell(void);
 
-//SIG&ERRORS
+//SIG_ERRORS
 //sig
 void		sig_def(void);
 void		sigint_handle(int sigint);
