@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   redirections.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diomari <diomarti@student.42lisboa.com>    +#+  +:+       +#+        */
+/*   By: diomarti <diomarti@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 19:10:28 by diomari           #+#    #+#             */
-/*   Updated: 2023/11/29 10:12:38 by diomari          ###   ########.fr       */
+/*   Updated: 2023/12/06 10:58:50 by diomarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ void	redirection(t_list *lst, char **div)
 				cur = cur->next;
 			j = 0;
 		}
-		else if (token_check(div[1]))
+		else if (token_check(div[i]))
 			token_red(div, &i, cur);
 		else
 			cur->ct[j++] = ft_strdup(div[i]);

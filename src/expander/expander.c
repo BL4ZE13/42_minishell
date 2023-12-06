@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   expander.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diomari <diomarti@student.42lisboa.com>    +#+  +:+       +#+        */
+/*   By: diomarti <diomarti@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 11:39:06 by diomarti          #+#    #+#             */
-/*   Updated: 2023/12/05 22:48:27 by diomari          ###   ########.fr       */
+/*   Updated: 2023/12/06 09:08:01 by diomarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,8 +100,11 @@ char	**expander(char **div, char **env)
 	i = -1;
 	j = 0;
 	exp_util(&div, env, &i, &j);
-	while (j)
-		!(div[--i] = NULL) && j--;
+	while (j > 0 && i >= 0)
+	{
+		div[i--] = NULL;
+		j--;
+	}
 	ft_free_matrix(&env);
 	return (div);
 }

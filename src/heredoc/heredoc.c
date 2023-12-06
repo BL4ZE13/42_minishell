@@ -6,7 +6,7 @@
 /*   By: diomarti <diomarti@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 18:20:09 by diomari           #+#    #+#             */
-/*   Updated: 2023/11/29 09:44:00 by diomarti         ###   ########.fr       */
+/*   Updated: 2023/12/06 11:11:08 by diomarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	chg_term(void)
 	}
 }
 
-void	hd_chid(char *str, int *fd)
+void	hd_child(char *str, int *fd)
 {
 	chg_term();
 	g_all.vars->env = ft_env_lst_to_array(g_all.env);
@@ -70,7 +70,7 @@ int	ft_heredoc(char *str)
 	if (pipe(fd) == -1)
 		perror("");
 	if (fork() == 0)
-		hd_chid(str, fd);
+		hd_child(str, fd);
 	sig_def();
 	close(fd[1]);
 	waitpid(0, &status, 0);

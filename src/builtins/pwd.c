@@ -6,7 +6,7 @@
 /*   By: diomarti <diomarti@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 17:58:54 by diomari           #+#    #+#             */
-/*   Updated: 2023/11/29 09:42:27 by diomarti         ###   ########.fr       */
+/*   Updated: 2023/12/06 09:18:22 by diomarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	pwd_exec(t_list **lst)
 {
-	char	cwd[_PC_PATH_MAX];
+	char	cwd[1000000];
 
 	(void)lst;
 	close_fd(lst, 1);

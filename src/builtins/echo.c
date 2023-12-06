@@ -6,11 +6,18 @@
 /*   By: diomarti <diomarti@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 17:56:54 by diomari           #+#    #+#             */
-/*   Updated: 2023/11/29 09:41:19 by diomarti         ###   ########.fr       */
+/*   Updated: 2023/12/06 10:47:27 by diomarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
+
+int	is_a_n(char letter)
+{
+	if (letter == 'n')
+		return (1);
+	return (0);
+}
 
 void	print_mt(char **str, size_t i)
 {
@@ -24,7 +31,7 @@ void	print_mt(char **str, size_t i)
 		if ((i + 1) != j)
 			printf("%s ", str[i]);
 		else
-			printf("%s ", str[i]);
+			printf("%s", str[i]);
 		i++;
 	}
 }
@@ -36,7 +43,7 @@ void	echo_op(t_list **lst, int *flag)
 	i = 1;
 	while ((*lst)->ct[1][i])
 	{
-		if ((*lst)->ct[1][i] != 'n')
+		if (!(is_a_n((*lst)->ct[1][i])))
 		{
 			(*flag)++;
 			break ;

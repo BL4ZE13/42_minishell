@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diomari <diomarti@student.42lisboa.com>    +#+  +:+       +#+        */
+/*   By: diomarti <diomarti@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 17:29:09 by diomari           #+#    #+#             */
-/*   Updated: 2023/11/30 17:18:54 by diomari          ###   ########.fr       */
+/*   Updated: 2023/12/06 11:00:44 by diomarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,7 +139,7 @@ char		*ft_strjoin_gnl(char *s1, char *s2);
 
 //HEREDOC
 int			ft_heredoc(char *str);
-void		hd_chid(char *str, int *fd);
+void		hd_child(char *str, int *fd);
 void		chg_term(void);
 
 //LIBFT

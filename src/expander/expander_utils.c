@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   expander_utils.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diomari <diomarti@student.42lisboa.com>    +#+  +:+       +#+        */
+/*   By: diomarti <diomarti@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 11:45:40 by diomarti          #+#    #+#             */
-/*   Updated: 2023/11/25 18:27:08 by diomari          ###   ########.fr       */
+/*   Updated: 2023/12/06 11:13:53 by diomarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

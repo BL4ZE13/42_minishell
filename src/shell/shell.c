@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   shell.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diomari <diomarti@student.42lisboa.com>    +#+  +:+       +#+        */
+/*   By: diomarti <diomarti@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 21:15:27 by diomari           #+#    #+#             */
-/*   Updated: 2023/12/04 16:13:39 by diomari          ###   ########.fr       */
+/*   Updated: 2023/12/06 09:05:35 by diomarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	shell(void)
 	while (1)
 	{
 		g_all.stop = 0;
-		input = readline("$ ");
+		input = readline("minishell: ");
 		if (!input)
 		{
 			if (input)

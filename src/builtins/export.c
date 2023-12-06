@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   export.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diomari <diomarti@student.42lisboa.com>    +#+  +:+       +#+        */
+/*   By: diomarti <diomarti@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 17:58:42 by diomari           #+#    #+#             */
-/*   Updated: 2023/11/29 10:07:25 by diomari          ###   ########.fr       */
+/*   Updated: 2023/12/06 09:41:04 by diomarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,11 +65,11 @@ void	export_exec(t_list **lst)
 	i = 1;
 	if (!(*lst)->ct[1])
 		expo_only();
-	while ((*lst)->ct[1])
+	while ((*lst)->ct[i])
 	{
-		str = ft_split((*lst)->ct[1], '=');
+		str = ft_split((*lst)->ct[i], '=');
 		if ((*lst)->ct[i][0] == '=' || (str && !ft_str_islanum(str[0])) \
-			|| ft_isdigit((*lst)->ct[i][0]))
+		|| ft_isdigit((*lst)->ct[i][0]))
 			expo_error(lst, str, i);
 		else
 			expo_core(lst, str, i);
