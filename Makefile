@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: diomarti <diomarti@student.42lisboa.com    +#+  +:+       +#+         #
+#    By: diomari <diomarti@student.42lisboa.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/17 17:29:03 by diomari           #+#    #+#              #
-#    Updated: 2023/12/06 09:08:22 by diomarti         ###   ########.fr        #
+#    Updated: 2023/12/06 20:00:18 by diomari          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ NAME = minishell
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror -g -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -g
 
 RM = rm -f
 

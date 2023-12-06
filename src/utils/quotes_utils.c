@@ -6,7 +6,7 @@
 /*   By: diomari <diomarti@student.42lisboa.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 17:03:27 by diomari           #+#    #+#             */
-/*   Updated: 2023/12/05 18:49:17 by diomari          ###   ########.fr       */
+/*   Updated: 2023/12/06 19:19:41 by diomari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	str_q_del(char **input, char c)
 
 void	quote_del(char **input)
 {
-	int	i; 
+	int	i;
 
 	i = -1;
 	while (input[++i])

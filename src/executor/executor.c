@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   executor.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diomarti <diomarti@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: diomari <diomarti@student.42lisboa.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 19:43:40 by diomari           #+#    #+#             */
-/*   Updated: 2023/11/29 09:43:47 by diomarti         ###   ########.fr       */
+/*   Updated: 2023/12/06 19:54:21 by diomari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	exec_cmd(t_list *lst)
 	{
 		if (lst->prev && lst->fd_m[0] < 3)
 			dup2(lst->fd[0], 0);
-		else if (lst->fd_m[0] < 2)
+		else if (lst->fd_m[0] > 2)
 			dup2(lst->fd_m[0], 0);
 		if (lst->next && lst->fd_m[1] < 3)
 			dup2(lst->next->fd[1], 1);
