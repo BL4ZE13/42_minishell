@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   list_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diomarti <diomarti@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: diomari <diomarti@student.42lisboa.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 21:28:06 by diomari           #+#    #+#             */
-/*   Updated: 2023/11/29 09:39:51 by diomarti         ###   ########.fr       */
+/*   Updated: 2023/12/05 23:01:00 by diomari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

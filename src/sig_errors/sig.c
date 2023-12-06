@@ -6,7 +6,7 @@
 /*   By: diomari <diomarti@student.42lisboa.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 20:53:28 by diomari           #+#    #+#             */
-/*   Updated: 2023/11/30 18:33:16 by diomari          ###   ########.fr       */
+/*   Updated: 2023/12/04 16:07:03 by diomari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ void	sigint_handle(int sigint)
 	pid_t	pid;
 	int		status;
 
-	(void)sigint;
 	pid = waitpid(-1, &status, 0);
 	g_all.status = 130;
+	(void)sigint;
 	write(2, "^C", 2);
 	write(2, "\n", 1);
 	if (g_all.hd)

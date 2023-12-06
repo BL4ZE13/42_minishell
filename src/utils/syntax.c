@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   syntax.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diomarti <diomarti@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: diomari <diomarti@student.42lisboa.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 10:22:56 by diomarti          #+#    #+#             */
-/*   Updated: 2023/11/29 10:17:53 by diomarti         ###   ########.fr       */
+/*   Updated: 2023/12/05 18:51:11 by diomari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	syn_error(char *str, char *input, int size)
 	write(2, "minishell: syntax error near unexpected token `", 47);
 	while (size != 0 && str[++i])
 	{
-		write(2, &str[i++], 1);
+		write(2, &str[i], 1);
 		size--;
 	}
 	write(2, "\'\n", 2);
@@ -66,7 +66,7 @@ void	tr_sep(char *input, int i, int size, int *wd)
 	while (input[i])
 	{
 		if (((!sep && syn_sep(&input[i], &tmp)) \
-			|| (sep && syn_sep(&input[i], &tmp) == 4)) && !n)
+		|| (sep && syn_sep(&input[i], &tmp) == 4)) && !n)
 			syn_error(&input[i], input, tmp);
 		else if (input[i] != 32)
 			n++;

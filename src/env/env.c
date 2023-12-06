@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   env.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diomarti <diomarti@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: diomari <diomarti@student.42lisboa.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 19:54:27 by diomari           #+#    #+#             */
-/*   Updated: 2023/11/29 09:43:00 by diomarti         ###   ########.fr       */
+/*   Updated: 2023/12/04 15:59:59 by diomari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ t_env	*env_dup(char **env)
 	int		i;
 	t_env	*res;
 
-	i = 0;
+	i = -1;
 	res = NULL;
-	while (env[i])
+	while (env[++i])
 		e_add_back(&res, e_new(ft_strdup(env[i])));
 	return (res);
 }
